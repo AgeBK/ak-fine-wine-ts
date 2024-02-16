@@ -1,0 +1,44 @@
+.sale {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  text-align: left;
+  cursor: pointer;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 50px;
+  text-align: center;
+}
+
+.twoFor {
+  height: 65px;
+}
+
+.seeAll,
+.sale:hover .priceDrop {
+  display: none;
+}
+
+.sale:hover .seeAll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffa500;
+  color: #000;
+  height: 100%;
+}
+
+.special {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.special a {
+  color: #fff;
+}

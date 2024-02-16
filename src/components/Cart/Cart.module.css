@@ -1,0 +1,16 @@
+.cartOuterContainer {
+  margin-top: 20px;
+}
+
+.container {
+  background-color: #fff;
+  width: auto;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    right: 15px;
+  }
+}

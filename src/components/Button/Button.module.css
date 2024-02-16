@@ -1,0 +1,190 @@
+.cart {
+  background-color: #000;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px 15px;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+  cursor: pointer;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0);
+  text-transform: uppercase;
+}
+
+.cart:hover {
+  background-color: #333;
+}
+
+.pills {
+  padding: 10px;
+  background-color: #eff0f4;
+  border: 1px solid #000;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  margin: 0 20px 5px 0;
+}
+
+.pills:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.pills::first-letter {
+  text-transform: capitalize;
+}
+
+.btn {
+  background-color: #3ca400;
+  padding: 3px 12px;
+  color: #fff;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.removeBtn {
+  padding-right: 5px;
+  background-color: #d3d3d3;
+  padding: 3px 10px;
+  color: #888;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.link {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  color: #222;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.link:hover {
+  color: #555;
+  background-color: #fff;
+}
+
+.scroll {
+  position: fixed;
+  bottom: 55px;
+  right: 20px;
+  border: 0;
+  opacity: 0.5;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.resultsPP {
+  border-radius: 0;
+  padding: 5px;
+  background: #fff;
+  box-shadow: none;
+  text-shadow: none;
+  color: #000;
+  border: 1px solid #000;
+  border-right: 0;
+  font-size: 1.1rem;
+}
+
+.resultsPP:last-child {
+  border-right: 1px solid #000;
+}
+
+.resultsPP:hover {
+  background: #888;
+  color: #fff;
+}
+
+.resultsPP:has(span) {
+  background: #000;
+  color: #fff;
+}
+
+.cartLge {
+  font-size: 1.2rem;
+  width: 30px;
+}
+
+.cartAdd {
+  background: url("/src/assets/img/btn/plus1.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.cartAdd:hover {
+  background: url("/src/assets/img/btn/plus.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.cartMinus {
+  background: url("/src/assets/img/btn/minus1.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.cartMinus:hover {
+  background: url("/src/assets/img/btn/minus.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.pageNumber {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.pageNumber:disabled {
+  color: #d3d3d3;
+}
+
+.discount {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.close {
+  font-size: 1.5rem;
+  position: absolute;
+  top: -2px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.filters {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 150px;
+  border: 1px solid #000;
+}
+
+.filters:hover {
+  background-color: #d3d3d3;
+}
+
+.cart:hover {
+  background-color: #008000;
+}
+
+@media screen and (max-width: 500px) {
+  .cartLge {
+    width: 20px;
+  }
+}

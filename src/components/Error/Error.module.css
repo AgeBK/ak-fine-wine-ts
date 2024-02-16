@@ -1,0 +1,18 @@
+.container {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.hdr {
+  margin: 20px 0;
+  color: #555;
+  font-size: 1.6rem;
+}
+
+.link {
+  margin-top: 20px;
+  display: inline-block;
+  color: #ffcf00;
+  background-color: #000;
+  padding: 15px;
+}

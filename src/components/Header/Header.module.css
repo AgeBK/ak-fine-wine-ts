@@ -1,0 +1,80 @@
+.header {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  max-width: 1400px;
+  border-bottom: 1px solid #d3d3d3;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+.headerRow {
+  display: flex;
+}
+
+.hdr {
+  flex-grow: 1;
+  font-size: 38px;
+  margin: 15px 0;
+}
+
+.logo {
+  margin: 5px 0 0px 15px;
+}
+
+.cartCont {
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    /* padding: 10px; */
+  }
+
+  .hdr {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hdr {
+    font-size: 1.5rem;
+    margin: 15px 0 0;
+    line-height: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header {
+    padding: 10px;
+  }
+
+  .hdr {
+    font-size: 22px;
+  }
+}
+
+/* .searchCont {
+  width: 40%;
+}
+
+.searchResults {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 2;
+  background: #fff;
+  max-width: 400px;
+  max-height: 200px;
+  padding: 0 10px 10px;
+  border: 1px solid #d3d3d3;
+} 
+
+.searchResults li {
+  margin-bottom: 2px;
+  background-color: red;
+}
+
+.searchResults li:nth-child(even) {
+}*/

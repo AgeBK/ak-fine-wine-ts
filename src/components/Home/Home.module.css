@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.campaign {
+  background-color: #000;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-image: url(/src/assets/img/bg/bgBlurb.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.campaign a,
+.campaignMini a {
+  color: #fff;
+}
+
+.campaign .toGood {
+  color: #fff;
+}
+
+.campaign .tenOff {
+  font-size: 4rem;
+}
+
+.shopNow {
+  font-size: 2rem;
+  margin: 15px 0;
+  border: 3px solid white;
+  display: inline-block;
+  padding: 5px 20px;
+  color: #fff;
+}
+
+.campaignMini {
+  display: flex;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.campaignMini .hdr {
+  font-size: 3rem;
+}
+
+.campaignMini > div {
+  flex: 1 1 0;
+  margin: 30px;
+  border: 5px solid white;
+}
+
+.campaignMini .twoForBlurb {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.slogan {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.randomSpecials {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.topOffers {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .campaignMini {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,43 @@
+.container {
+  flex: 0 0 210px;
+  margin: 20px;
+}
+
+.hdrCont {
+  display: flex;
+}
+
+.hdr {
+  font-size: 1.6rem;
+  padding-bottom: 20px;
+  flex-grow: 1;
+}
+
+.close {
+  display: none;
+}
+
+.filterList {
+  border-top: 1px solid #555;
+}
+
+.filterList > li {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #555;
+}
+
+.filterList input,
+.filterList label {
+  cursor: pointer;
+}
+
+.filterList input[type="radio"] {
+  margin: 4px 10px 10px 0;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    flex: 1 1 0;
+  }
+}
