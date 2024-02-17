@@ -70,7 +70,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
             <Img
               image={`bg/${Math.round(average)}star.jpg`}
               imageStyle="block"
-              imageAlt="AK Fine Wines"
+              imageAlt={shortName}
             />
           ) : null}
         </div>
