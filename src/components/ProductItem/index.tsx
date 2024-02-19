@@ -61,7 +61,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         <Img
           image={`wine/${id}.jpg`}
           imageStyle="campaignMini"
-          imageAlt="AK Fine Wines"
+          imageAlt={shortName}
         />
         <div className={styles.productMeta}>
           <h2 className={styles.brand}>{brand}</h2>

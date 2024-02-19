@@ -39,7 +39,7 @@ function Product() {
     id: urlId,
   } = useParams<ProductProps>();
   const { data } = useGetWinesQuery();
-  const product = data?.find(({ id }:DataProps) => id === urlId);
+  const product = data?.find(({ id }: DataProps) => id === urlId);
   const review: KeyStringProps = reviews;
 
   if (product) {
