@@ -8,6 +8,7 @@ import styles from "./Header.module.css";
 const Header = () => {
   const path = location.hostname;
   console.log(path);
+  const id = "12041";
 
   return (
     <header className={styles.header}>
@@ -31,6 +32,7 @@ const Header = () => {
             imageStyle="logo"
             imageAlt="AK Fine Wines"
           />
+          <Img image={`${id}/12041.jpg`} imageStyle="logo" imageAlt="id  " />
           <Img
             image={"logos/AK.png"}
             imageStyle="logo"
