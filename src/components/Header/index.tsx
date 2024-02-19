@@ -7,6 +7,7 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const path = location.hostname;
+  console.log(path);
 
   return (
     <header className={styles.header}>
