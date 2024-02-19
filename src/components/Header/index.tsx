@@ -6,8 +6,11 @@ import Cart from "../Cart";
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const path = location.hostname;
+
   return (
     <header className={styles.header}>
+      <div>{path}</div>
       <div className={styles.headerRow}>
         <div className={styles.logo}>
           <Link to="/">
