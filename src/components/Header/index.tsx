@@ -26,6 +26,16 @@ const Header = () => {
               imageAlt="AK Fine Wines"
             />
           </Link>
+          <Img
+            image={"wine/12041.jpg"}
+            imageStyle="logo"
+            imageAlt="AK Fine Wines"
+          />
+          <Img
+            image={"logos/AK.png"}
+            imageStyle="logo"
+            imageAlt="AK Fine Wines"
+          />
         </div>
         <h1 className={styles.hdr}>
           AK <span>FINE WINES</span>
