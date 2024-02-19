@@ -20,7 +20,7 @@ const Header = () => {
           style={{ height: "30px", width: "30px" }}
         />
         <img
-          src="./src/imgs/logos/AK.png"
+          src="./src/assets/img/logos/AK.png"
           alt="test3"
           style={{ height: "30px", width: "30px" }}
         />
