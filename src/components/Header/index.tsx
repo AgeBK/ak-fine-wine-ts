@@ -6,10 +6,10 @@ import Cart from "../Cart";
 import styles from "./Header.module.css";
 
 const Header = () => {
-
   return (
     <header className={styles.header}>
       <div className={styles.headerRow}>
+        <img src="./AK.png" alt="test" />
         <div className={styles.logo}>
           <Link to="/">
             <Img
