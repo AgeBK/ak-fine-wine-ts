@@ -7,14 +7,19 @@ type ImageProps = {
   imageAlt: string;
 };
 
-const Image = ({ image, imageStyle, imageAlt }: ImageProps) => {
-  const isGHPages = location.hostname === "agebk.github.io";
-  console.log(isGHPages);
-  const path = `${imgPath}${image}`;
-  const imgSrc = isGHPages ? "../" + path : path;
-  console.log(imgSrc);
+const isLocalHost = location.hostname==="localhost";
+console.log(isLocalHost);
+const imgPath =
+const imgSrc = isLocalHost
 
-  return <img src={imgSrc} className={styles[imageStyle]} alt={imageAlt} />;
-};
+
+
+const Image = ({ image, imageStyle, imageAlt }: ImageProps) => (
+  <img
+    src={`${imgPath}${image}`}
+    className={styles[imageStyle]}
+    alt={imageAlt}
+  />
+);
 
 export default Image;

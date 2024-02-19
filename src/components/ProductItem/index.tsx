@@ -84,7 +84,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         <div className={styles.productMeta}>
           <h2 className={styles.brand}>{brand}</h2>
           <h3 className={styles.shortName}>{shortName}</h3>
-          {average && Math.round(average) > 2 ? (
+          {avg && avg > 2 ? (
             <Img
               image={`bg/${avg}star.jpg`}
               imageStyle="block"
