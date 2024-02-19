@@ -47,6 +47,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
   const deal: DealProps = checkDeals(twoFor, tenFor, percentOff);
   const onSpecial: number | null = current !== normal ? current : null;
   const path = `./src/assets/img/wine/${id}.jpg`;
+  const avg = Math.round(average);
 
   return (
     <div className={`${styles.product} ${css ? styles[css] : ""}`} key={id}>
@@ -70,7 +71,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
           alt={shortName}
         />
         <img
-          src={`./src/assets/img/${id}/4267851.jpg`}
+          src={`./src/assets/img/wine/${id}.jpg`}
           style={{ height: "30px", width: "30px" }}
           alt={shortName}
         />
@@ -85,9 +86,9 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
           <h3 className={styles.shortName}>{shortName}</h3>
           {average && Math.round(average) > 2 ? (
             <Img
-              image={`bg/${Math.round(average)}star.jpg`}
+              image={`bg/${avg}star.jpg`}
               imageStyle="block"
-              imageAlt={shortName}
+              imageAlt={`${avg} star`}
             />
           ) : null}
         </div>
