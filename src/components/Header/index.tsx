@@ -9,7 +9,14 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerRow}>
-        <img src="./AK.png" alt="test" />
+        <img src="./AK.png" alt="test" style="height:30px;width:30px" />
+        <img src="/AK.png" alt="test2" style="height:30px;width:30px" />
+        <img
+          src="./src/imgs/logos/AK.png"
+          alt="test3"
+          style="height:30px;width:30px"
+        />
+
         <div className={styles.logo}>
           <Link to="/">
             <Img
