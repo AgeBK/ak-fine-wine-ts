@@ -9,7 +9,7 @@ type ImageProps = {
 
 const Image = ({ image, imageStyle, imageAlt }: ImageProps) => (
   <img
-    src={`${imgPath}${image}`}
+    src={`.${imgPath}${image}`}
     className={styles[imageStyle]}
     alt={imageAlt}
   />
