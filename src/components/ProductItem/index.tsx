@@ -73,7 +73,7 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         <img
           src={`./src/assets/img/wine/${id}.jpg`}
           style={{ height: "30px", width: "30px" }}
-          alt={shortName}
+          alt="id"
         />
         <img
           src="./src/assets/img/wine/4267851.jpg"

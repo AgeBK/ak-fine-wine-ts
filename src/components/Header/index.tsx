@@ -32,7 +32,7 @@ const Header = () => {
             imageStyle="logo"
             imageAlt="AK Fine Wines"
           />
-          <Img image={`${id}/12041.jpg`} imageStyle="logo" imageAlt="id  " />
+          <Img image={`wine/${id}.jpg`} imageStyle="logo" imageAlt="id" />
           <Img
             image={"logos/AK.png"}
             imageStyle="logo"
