@@ -12,6 +12,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div>The path is: {path}</div>
+      <img
+        src="./src/assets/img/wine/4267851.jpg"
+        style={{ height: "30px", width: "30px" }}
+        alt="Moscato 750ml"
+      ></img>
       <div className={styles.headerRow}>
         <div className={styles.logo}>
           <Link to="/">
