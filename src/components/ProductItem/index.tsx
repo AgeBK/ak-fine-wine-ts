@@ -60,7 +60,17 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         className={styles.itemCont}
       >
         <img
+          src="./src/assets/img/wine/4267851.jpg"
+          style={{ height: "30px", width: "30px" }}
+          alt="Moscato 750ml"
+        />
+        <img
           src="./src/assets/img/${id}/4267851.jpg"
+          style={{ height: "30px", width: "30px" }}
+          alt={shortName}
+        />
+        <img
+          src={`./src/assets/img/${id}/4267851.jpg`}
           style={{ height: "30px", width: "30px" }}
           alt={shortName}
         />
