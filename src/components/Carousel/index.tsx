@@ -12,8 +12,7 @@ import {
 } from "../../data/appData.json";
 import styles from "./Carousel.module.css";
 
-
-const Carousel = ({ arr }: {arr:DataProps[]}) => {
+const Carousel = ({ arr }: { arr: DataProps[] }) => {
   const [pageIndex, setPageIndex] = useState<number>(0);
   const [items, setItems] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);

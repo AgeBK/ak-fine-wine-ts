@@ -15,7 +15,7 @@ import styles from "./AutoComplete.module.css";
 
 type ACDataProps = {
   name: string;
-  id: number;
+  id: string;
   category: string;
   variety: string;
   packaging: string;
@@ -23,7 +23,6 @@ type ACDataProps = {
 
 const AutoComplete = () => {
   const { data } = useGetWinesQuery();
-
   const [overlay, setOverlay] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const isMobileView: boolean = useMobileView(MAX_MOBILE_WIDTH);
@@ -31,7 +30,7 @@ const AutoComplete = () => {
 
   if (data) {
     const ACData: ACDataProps[] = data.map(
-      ({ name, id, category, variety, packaging }: ACDataProps) => {
+      ({ name, id, category, variety, packaging }) => {
         return { name, id, category, variety, packaging };
       }
     );

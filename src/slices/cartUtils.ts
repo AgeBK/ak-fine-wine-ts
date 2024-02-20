@@ -3,7 +3,7 @@ const checkDiscountCode = (cart: CartProps, promotionCode: string) => {
     const item = cart[cartItem];
     const { price, discountCode, deal } = item;
 
-    if (discountCode && deal?.percentOff) {
+    if (discountCode && deal && deal.percentOff) {
       const { percentOff } = deal;
       if (
         percentOff &&
