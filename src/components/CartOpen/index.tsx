@@ -6,6 +6,8 @@ import {
   selectCart,
   applyDiscountCode,
 } from "../../slices/cartSlice";
+import CartPrice from "../CartPrice";
+import CartItemSaving from "../CartItemSaving";
 import Img from "../Image";
 import Button from "../Button";
 import styles from "./CartOpen.module.css";
@@ -18,18 +20,6 @@ type CartOpenProps = {
   setDiscountCode: (code: string) => void;
 };
 
-type CartPriceProps = {
-  price: number;
-  dealPrice?: number;
-  quantity: number;
-};
-
-type ItemSavingsProps = {
-  price: number;
-  dealPrice?: number;
-  quantity: number;
-};
-
 const CartOpen = ({
   totalPrice,
   totalQty,
@@ -40,19 +30,6 @@ const CartOpen = ({
   const dispatch = useDispatch();
   const cart: CartProps = useSelector(selectCart);
   const [codeEntered, setCodeEntered] = useState(false);
-
-  const CartPrice = ({ price, dealPrice, quantity }: CartPriceProps) => {
-    const cartPrice = (dealPrice || price) * quantity;
-    return <div className={styles.price}>${cartPrice.toFixed(2)}</div>;
-  };
-
-  const ItemSavings = ({ price, dealPrice, quantity }: ItemSavingsProps) =>
-    dealPrice ? (
-      <div className={styles.savings}>
-        <span className={styles.triangle}></span>
-        You save: ${((price - dealPrice) * quantity).toFixed(2)}
-      </div>
-    ) : null;
 
   const handleKeyDown = ({ key }: KeyboardEvent<HTMLInputElement>) => {
     if (key === "Enter") {
@@ -172,7 +149,7 @@ const CartOpen = ({
                 </div>
               </div>
               <div className={styles.itemSavings}>
-                <ItemSavings
+                <CartItemSaving
                   price={price}
                   dealPrice={dealPrice}
                   quantity={quantity}

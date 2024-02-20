@@ -43,7 +43,6 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
       } else {
         currentItems = ONE_CAROUSEL_ITEM;
       }
-      console.log(currentItems);
       if (currentItems !== items) setItems(currentItems);
     }
   }, [items]);

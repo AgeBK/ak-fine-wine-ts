@@ -23,6 +23,7 @@ import FilterList from "../Filters/FilterList";
 import Button from "../Button";
 import styles from "./Category.module.css";
 
+// TODO: check alt tags
 type MobileViewProps = {
   filters: boolean;
   items: boolean;
