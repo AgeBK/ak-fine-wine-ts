@@ -30,9 +30,9 @@ type MobileViewProps = {
 
 const Category = () => {
   // ** Work flow **
-  // get data (useGetWinesQuery - Array of objects) from Redux API slice
-  // I filter the data (categoryPageData) depending what URL I come into the component with. eg: http://localhost/red - red wines
-  // There's a check to see if any filters or sorting has been applied
+  // Get data (useGetWinesQuery - Array of objects) from Redux API slice
+  // Initial filter: filter the data (categoryPageData function) depending what URL I come into the component with. eg: http://localhost:5000/red - red wines
+  // Check to see if any filters or sorting has been applied
   // I create an array depending on how many items per page is selected which is then rendered
 
   const { data } = useGetWinesQuery();
@@ -43,23 +43,15 @@ const Category = () => {
     useState<MobileViewProps>(mobileViewSettings);
   const { category: urlCategory, variety: urlVariety } = useParams();
   const isMobileView: boolean = useMobileView(MAX_MOBILE_WIDTH);
-  const dataRef = useRef<ArrDataProps>([]);
+  const dataRef = useRef<DataProps[]>([]);
   const headerRef = useRef<string>("");
 
   useEffect(() => {
     setMobileView({ filters: !isMobileView, items: true });
   }, [isMobileView]);
 
-  const current: ArrDataPropsUndef = data;
-
-  if (dataRef.current.length === 0 && urlCategory) {
-    const [arr, header] = categoryPageData(current, urlCategory, urlVariety);
-    dataRef.current = arr as ArrDataProps;
-    headerRef.current = header as string;
-  }
-
   useEffect(() => {
-    // reset page
+    // reset page if URl changes
     setSortName("");
     setFilters({});
     dataRef.current = [];
@@ -80,104 +72,116 @@ const Category = () => {
     return arr;
   }, [filters, sortName]);
 
-  const pagedData = currentData.slice(
-    (paging.page - 1) * paging.pageSize,
-    paging.page * paging.pageSize
-  );
-
-  const updateFilters = (filter: object) =>
-    setFilters({ ...filters, ...filter });
-
-  const removeFilters = (val: string) => {
-    if (val === "all") {
-      setFilters({});
-    } else {
-      delete filters[val as keyof FilterProps];
-      setFilters({ ...filters });
+  if (data && Array.isArray(data)) {
+    if (dataRef.current.length === 0 && urlCategory) {
+      const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
+      dataRef.current = arr as DataProps[];
+      headerRef.current = header as string;
     }
-  };
 
-  const updatePaging = ({ page, pageSize }: PagingProps) => {
-    window.scrollTo(0, 0);
-    setPaging({ page, pageSize });
-  };
+    const pagedData = currentData.slice(
+      (paging.page - 1) * paging.pageSize,
+      paging.page * paging.pageSize
+    );
 
-  const togglePageItems = () => {
-    // either show filters or items on small screen
-    const { filters, items } = mobileView;
-    setMobileView({ filters: !filters, items: !items });
-  };
+    const updateFilters = (filter: object) =>
+      setFilters({ ...filters, ...filter });
 
-  return (
-    <article>
-      <section className={styles.categoryBlurb}>
-        <Blurb
-          urlCategory={urlCategory}
-          urlVariety={urlVariety}
-          header={headerRef.current}
-        />
-      </section>
-      {isMobileView && (
-        <div className={styles.smlScreen}>
-          <Button css="filters" onClick={togglePageItems}>
-            {mobileView.filters ? (
-              <span className={styles.close}>X</span>
-            ) : (
-              "Filters"
-            )}
-          </Button>
-        </div>
-      )}
-      <div className={styles.category}>
-        {mobileView.filters && (
-          <FilterList
-            updateFilters={updateFilters}
-            filters={filters}
-            currentData={currentData}
+    const removeFilters = (val: string) => {
+      if (val === "all") {
+        setFilters({});
+      } else {
+        delete filters[val as keyof FilterProps];
+        setFilters({ ...filters });
+      }
+    };
+
+    const updatePaging = ({ page, pageSize }: PagingProps) => {
+      window.scrollTo(0, 0);
+      setPaging({ page, pageSize });
+    };
+
+    const togglePageItems = () => {
+      // either show filters or items on small screen
+      const { filters, items } = mobileView;
+      setMobileView({ filters: !filters, items: !items });
+    };
+
+    return (
+      <article>
+        <section className={styles.categoryBlurb}>
+          <Blurb
+            urlCategory={urlCategory}
+            urlVariety={urlVariety}
+            header={headerRef.current}
           />
+        </section>
+        {isMobileView && (
+          <div className={styles.smlScreen}>
+            <Button css="filters" onClick={togglePageItems}>
+              {mobileView.filters ? (
+                <span className={styles.close}>X</span>
+              ) : (
+                "Filters"
+              )}
+            </Button>
+          </div>
         )}
-        {mobileView.items && (
-          <section className={styles.categoryItems}>
-            <div className={styles.detailsCont}>
-              <Pills filters={filters} removeFilters={removeFilters} />
-              <span className={styles.results}>
-                ({currentData.length}) Available
-              </span>
-              <div className={styles.sort}>Sort:</div>
-              <Sort sortName={sortName} setSortName={setSortName} />
-            </div>
-            {currentData.length > 0 ? (
-              <>
-                <ProductList arr={pagedData} />
-                <div className={styles.categoryFooter}>
-                  <div className={styles.pageNumCont}>
-                    <PageNumber
-                      currentData={currentData}
-                      paging={paging}
-                      updatePaging={updatePaging}
-                    />
-                  </div>
-                  <div className={styles.resultsPPCont}>
-                    <div className={styles.resultsPP}>Results per page:</div>
-                    <div className={styles.resultsPPBtns}>
-                      <ResultsPP paging={paging} updatePaging={updatePaging} />
+        <div className={styles.category}>
+          {mobileView.filters && (
+            <FilterList
+              updateFilters={updateFilters}
+              filters={filters}
+              currentData={currentData}
+            />
+          )}
+          {mobileView.items && (
+            <section className={styles.categoryItems}>
+              <div className={styles.detailsCont}>
+                <Pills filters={filters} removeFilters={removeFilters} />
+                <span className={styles.results}>
+                  ({currentData.length}) Available
+                </span>
+                <div className={styles.sort}>Sort:</div>
+                <Sort sortName={sortName} setSortName={setSortName} />
+              </div>
+              {currentData.length > 0 ? (
+                <>
+                  <ProductList arr={pagedData} />
+                  <div className={styles.categoryFooter}>
+                    <div className={styles.pageNumCont}>
+                      <PageNumber
+                        currentData={currentData}
+                        paging={paging}
+                        updatePaging={updatePaging}
+                      />
+                    </div>
+                    <div className={styles.resultsPPCont}>
+                      <div className={styles.resultsPP}>Results per page:</div>
+                      <div className={styles.resultsPPBtns}>
+                        <ResultsPP
+                          paging={paging}
+                          updatePaging={updatePaging}
+                        />
+                      </div>
                     </div>
                   </div>
+                </>
+              ) : (
+                <div className={styles.noResults}>
+                  Sorry, no results:
+                  <br />
+                  <Link to="/" className={styles.link}>
+                    Back to homepage
+                  </Link>
                 </div>
-              </>
-            ) : (
-              <div className={styles.noResults}>
-                Sorry, no results:
-                <br />
-                <Link to="/" className={styles.link}>
-                  Back to homepage
-                </Link>
-              </div>
-            )}
-          </section>
-        )}
-      </div>
-    </article>
-  );
+              )}
+            </section>
+          )}
+        </div>
+      </article>
+    );
+  }
+  return null;
 };
 export default Category;

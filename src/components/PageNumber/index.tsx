@@ -2,7 +2,7 @@ import Button from "../Button";
 import styles from "./PageNumber.module.css";
 
 type PageNumberProps = {
-  currentData: ArrDataProps;
+  currentData: DataProps[];
   paging: PagingProps;
   updatePaging: (paging: PagingProps) => void;
 };

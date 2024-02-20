@@ -4,7 +4,7 @@ import VarietyFilter from "../Variety";
 import styles from "./FilterList.module.css";
 
 type FilterListProps = {
-  currentData: ArrDataProps;
+  currentData: DataProps[];
   filters: FilterProps;
   urlVariety?: string;
   updateFilters: (filters: {

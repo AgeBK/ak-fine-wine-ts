@@ -26,10 +26,6 @@ declare global {
     unitOfMeasureLabel: string;
   };
 
-  type ArrDataProps = DataProps[];
-
-  type ArrDataPropsUndef = DataProps[] | undefined;
-
   type DealProps = {
     twoFor?: number;
     tenFor?: number;

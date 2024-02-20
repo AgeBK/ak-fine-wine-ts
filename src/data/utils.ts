@@ -6,21 +6,18 @@ const hyphenate = (text: string) =>
 const deHyphenate = (text: string) =>
   typeof text === "string" && text.toLowerCase().replace(/-/gi, " ");
 
-const randomProducts = (arr: ArrDataProps) =>
+const randomProducts = (arr: DataProps[]) =>
   arr.sort(() => 0.5 - Math.random());
 
-const homePageCarouselProducts = (arr: ArrDataPropsUndef): ArrDataPropsUndef => {
+const homePageCarouselProducts = (arr: DataProps[]): DataProps[] => {
   const products = arr
-    ?.filter(({ price: { current, normal } }: ArrDataPropsUndef) => current !== normal)
+    .filter(({ price: { current, normal } }) => current !== normal)
     .slice(0, MAX_CAROUSEL_PRODUCTS);
 
   return randomProducts(products);
 };
 
-const productPageCarouselProducts = (
-  arr: ArrDataProps,
-  wineVariety: string
-) => {
+const productPageCarouselProducts = (arr: DataProps[], wineVariety: string) => {
   const products = arr
     .filter(({ variety }) => hyphenate(variety) === wineVariety)
     .slice(0, MAX_CAROUSEL_PRODUCTS);
@@ -40,56 +37,54 @@ const checkDeals = (twoFor?: number, tenFor?: number, percentOff?: number) => {
 };
 
 const categoryURLs = {
-  "price-drop": (all: ArrDataPropsUndef) => {
-    return all?.filter(({ price: { current, normal } }) => current !== normal);
+  "price-drop": (all: DataProps[]) => {
+    return all.filter(({ price: { current, normal } }) => current !== normal);
   },
-  "two-for-deals": (all: ArrDataPropsUndef) => {
-    return all?.filter(
+  "two-for-deals": (all: DataProps[]) => {
+    return all.filter(
       ({ promotion: { calloutText } }) =>
         calloutText && calloutText.startsWith("2 for")
     );
   },
-  "ten-percent-off": (all: ArrDataPropsUndef) => {
-    return all?.filter(
+  "ten-percent-off": (all: DataProps[]) => {
+    return all.filter(
       ({ promotion: { calloutText } }) =>
         calloutText && calloutText.startsWith("10% OFF")
     );
   },
-  "ten-and-less": (all: ArrDataPropsUndef) => {
-    return all?.filter(({ price: { current } }) => current <= 10);
+  "ten-and-less": (all: DataProps[]) => {
+    return all.filter(({ price: { current } }) => current <= 10);
   },
-  "ten-for-100": (all: ArrDataPropsUndef) => {
-    return all?.filter(({ price: { tenFor } }) => tenFor === 100);
+  "ten-for-100": (all: DataProps[]) => {
+    return all.filter(({ price: { tenFor } }) => tenFor === 100);
   },
-  "two-for-price": (all: ArrDataPropsUndef, price: number) => {
-    return all?.filter(({ price: { twoFor } }) => twoFor === price);
+  "two-for-price": (all: DataProps[], price: number) => {
+    return all.filter(({ price: { twoFor } }) => twoFor === price);
   },
-  urlVariety: (all: ArrDataPropsUndef, urlVariety: string) => {
-    return all?.filter(
+  urlVariety: (all: DataProps[], urlVariety: string) => {
+    return all.filter(
       ({ variety, brand }) =>
         hyphenate(variety) === urlVariety || hyphenate(brand) === urlVariety
     );
   },
-  search: (all: ArrDataPropsUndef, query: string) => {
-    return all?.filter(({ name }) =>
+  search: (all: DataProps[], query: string) => {
+    return all.filter(({ name }) =>
       name.toLowerCase().includes(query.toLowerCase())
     );
   },
-  category: (all: ArrDataPropsUndef, urlCategory: string) => {
-    return all?.filter(
-      ({ category }) => category.toLowerCase() === urlCategory
-    );
+  category: (all: DataProps[], urlCategory: string) => {
+    return all.filter(({ category }) => category.toLowerCase() === urlCategory);
   },
 };
 
 const categoryPageData = (
-  data: ArrDataPropsUndef,
+  data: DataProps[],
   urlCategory: string,
   urlVariety?: string
 ) => {
   const sp = new URLSearchParams(location.pathname.substring(1));
-  let arr: ArrDataPropsUndef = [];
-  let header = "";
+  let arr: DataProps[] = [];
+  let header: string = "";
 
   if (urlVariety) {
     // filter by wine variety or wine brand
@@ -139,28 +134,28 @@ const categoryPageData = (
         break;
     }
   }
-  arr?.sort((a, b) => (a.ratings.average > b.ratings.average ? -1 : 1));
+  arr.sort((a, b) => (a.ratings.average > b.ratings.average ? -1 : 1));
   return [arr, header];
 };
 
-const alphabetically = (arr: ArrDataProps, reverseOrder: boolean) => {
+const alphabetically = (arr: DataProps[], reverseOrder: boolean) => {
   arr.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
   reverseOrder && arr.reverse();
   return arr;
 };
 
-const financially = (arr: ArrDataProps, reverseOrder: boolean) => {
+const financially = (arr: DataProps[], reverseOrder: boolean) => {
   arr.sort((a, b) => (a.price.current < b.price.current ? -1 : 1));
   reverseOrder && arr.reverse();
   return arr;
 };
 
-const saleItemsFirst = (arr: ArrDataProps) => {
+const saleItemsFirst = (arr: DataProps[]) => {
   arr.sort(({ price: { current, normal } }) => (current < normal ? -1 : 1));
   return arr;
 };
 
-const sortCategoryPageData = (arr: ArrDataProps, value: string) => {
+const sortCategoryPageData = (arr: DataProps[], value: string) => {
   switch (value) {
     case "a-z":
       arr = alphabetically(arr, false);
@@ -184,7 +179,7 @@ const sortCategoryPageData = (arr: ArrDataProps, value: string) => {
   return arr;
 };
 
-const filterCategoryPageData = (arr: ArrDataProps, filters: FilterProps) => {
+const filterCategoryPageData = (arr: DataProps[], filters: FilterProps) => {
   const { price, rating, variety } = filters;
 
   if (price) {

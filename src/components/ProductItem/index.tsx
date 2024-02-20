@@ -46,7 +46,6 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
 
   const deal: DealProps = checkDeals(twoFor, tenFor, percentOff);
   const onSpecial: number | null = current !== normal ? current : null;
-  const path = `./src/assets/img/wine/${id}.jpg`;
   const avg = Math.round(average);
 
   return (
@@ -60,27 +59,11 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         )}/${id}`}
         className={styles.itemCont}
       >
-        <img
-          src="./src/assets/img/wine/4267851.jpg"
-          style={{ height: "30px", width: "30px" }}
-          alt="Moscato 750ml"
+        <Img
+          image={`wine/${id}.jpg`}
+          imageStyle="campaignMini"
+          imageAlt="AK Fine Wines"
         />
-        <img
-          src="./src/assets/img/${id}/4267851.jpg"
-          style={{ height: "30px", width: "30px" }}
-          alt={shortName}
-        />
-        <img
-          src={`./src/assets/img/wine/${id}.jpg`}
-          style={{ height: "30px", width: "30px" }}
-          alt="id"
-        />
-        <img
-          src="./src/assets/img/wine/4267851.jpg"
-          style={{ height: "30px", width: "30px" }}
-          alt="Moscato 750ml"
-        />
-        <img src={path} style={{ height: "150px" }} alt="Moscato 750ml" />
         <div className={styles.productMeta}>
           <h2 className={styles.brand}>{brand}</h2>
           <h3 className={styles.shortName}>{shortName}</h3>

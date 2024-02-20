@@ -2,7 +2,7 @@ import ProductItem from "../ProductItem";
 import styles from "./ProductList.module.css";
 
 type ArrProps = {
-  arr: ArrDataProps;
+  arr: DataProps[];
 };
 
 const ProductList = ({ arr }: ArrProps) => {

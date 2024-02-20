@@ -3,21 +3,25 @@ import Loading from "../Loading";
 import Error from "../Error";
 import { useGetWinesQuery } from "../../services/API";
 
-
 type ContentProps = {
   children: ReactNode;
 };
 
 const Content = ({ children }: ContentProps) => {
   let content: ReactNode = null;
-  const { error, isLoading } = useGetWinesQuery();
+  const { error, isLoading, data } = useGetWinesQuery();
+  const dataIsArray = Array.isArray(data);
 
   if (error) {
     content = <Error />;
   } else if (isLoading) {
     content = <Loading />;
   } else {
-    content = children;
+    if (dataIsArray) {
+      content = children;
+    } else {
+      content = <Error />;
+    }
   }
   return <main>{content}</main>;
 };

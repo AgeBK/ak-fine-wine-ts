@@ -12,15 +12,12 @@ import {
 } from "../../data/appData.json";
 import styles from "./Carousel.module.css";
 
-type CarouselProps = {
-  arr: ArrDataProps;
-};
 
-const Carousel = ({ arr }: CarouselProps) => {
+const Carousel = ({ arr }: {arr:DataProps[]}) => {
   const [pageIndex, setPageIndex] = useState<number>(0);
   const [items, setItems] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
-  const totalPages: number = arr.length / items - 1;
+  const totalPages: number = arr && arr.length / items - 1;
 
   const handleClick = (val: number): void =>
     setPageIndex((prev: number) => prev + val);
