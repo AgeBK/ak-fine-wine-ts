@@ -1,4 +1,4 @@
-import { ChangeEvent, memo } from "react";
+import { ChangeEvent } from "react";
 import { sortNameArr } from "../../data/appData.json";
 
 import styles from "./Sort.module.css";
@@ -8,7 +8,7 @@ type SortProps = {
   setSortName: (name: string) => void;
 };
 
-export const Sort = memo(({ sortName, setSortName }: SortProps) => {
+function Sort({ sortName, setSortName }: SortProps) {
   const update = ({ target: { value } }: ChangeEvent<HTMLSelectElement>) =>
     setSortName(value);
 
@@ -32,6 +32,6 @@ export const Sort = memo(({ sortName, setSortName }: SortProps) => {
       </label>
     </div>
   );
-});
+}
 
-// export default memo(Sort);
+export default Sort;

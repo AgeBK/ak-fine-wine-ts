@@ -14,7 +14,7 @@ import {
   mobileViewSettings,
 } from "../../data/appData.json";
 import ProductList from "../ProductList";
-import { Sort } from "../Sort";
+import Sort from "../Sort";
 import Pills from "../Pills";
 import { Blurb } from "../Blurb";
 import PageNumber from "../PageNumber";
@@ -23,7 +23,6 @@ import FilterList from "../Filters/FilterList";
 import Button from "../Button";
 import styles from "./Category.module.css";
 
-// TODO: check alt tags
 type MobileViewProps = {
   filters: boolean;
   items: boolean;
