@@ -2,34 +2,7 @@
   padding: 15px;
 }
 
-.productCont {
-  display: flex;
-  margin-top: 50px;
-}
 
-.productImg {
-  flex: 0 0 30%;
-  text-align: right;
-  margin-right: 80px;
-  position: relative;
-}
-
-.productMeta {
-  position: relative;
-  margin-right: 40px;
-}
-
-.brand {
-  font-size: 4rem;
-  line-height: 4rem;
-  margin-bottom: 20px;
-}
-
-.shortName {
-  font-size: 2rem;
-  line-height: 2rem;
-  margin-bottom: 20px;
-}
 
 .listInfo {
   display: flex;

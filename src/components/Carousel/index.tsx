@@ -150,6 +150,7 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
                 />
               );
             }
+            return null;
           }
         )}
         <div className={`${styles.arrow} ${styles.arrowRight}`}>

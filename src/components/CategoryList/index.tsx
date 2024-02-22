@@ -1,11 +1,11 @@
 import ProductItem from "../ProductItem";
-import styles from "./ProductList.module.css";
+import styles from "./CategoryList.module.css";
 
 type ArrProps = {
   arr: DataProps[];
 };
 
-const ProductList = ({ arr }: ArrProps) => {
+const CategoryList = ({ arr }: ArrProps) => {
   return (
     <div className={styles.products}>
       {arr.map(
@@ -47,4 +47,4 @@ const ProductList = ({ arr }: ArrProps) => {
   );
 };
 
-export default ProductList;
+export default CategoryList;

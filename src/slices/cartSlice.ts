@@ -33,17 +33,19 @@ export const cartSlice = createSlice({
 
       const { cart, twoForDeals, promotionCode } = state;
 
-      cart[id]
-        ? (state.cart[id].quantity += quantity)
-        : (state.cart[id] = {
-            name,
-            brand,
-            shortName,
-            price,
-            quantity,
-            deal,
-            discountCode,
-          });
+      if (cart[id]) {
+        state.cart[id].quantity += quantity;
+      } else {
+        state.cart[id] = {
+          name,
+          brand,
+          shortName,
+          price,
+          quantity,
+          deal,
+          discountCode,
+        };
+      }
 
       // monitor products in multibuy deals
       if (deal && quantity) {

@@ -16,13 +16,11 @@ const Content = ({ children }: ContentProps) => {
     content = <Error />;
   } else if (isLoading) {
     content = <Loading />;
-  } else {
-    if (dataIsArray) {
+  } else if (dataIsArray) {
       content = children;
     } else {
       content = <Error />;
     }
-  }
   return <main>{content}</main>;
 };
 

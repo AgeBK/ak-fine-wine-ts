@@ -20,14 +20,14 @@ export const Blurb = memo(({ urlCategory, urlVariety, header }: BlurbProps) => {
     }
 
     return (
-      <>
+      <section className={styles.categoryBlurb}>
         <h2 className={styles.variety}>
           {header ||
             (urlVariety && deHyphenate(urlVariety)) ||
             deHyphenate(urlCategory)}
         </h2>
         <div className={styles.varietyBlurb}>{wineVariety || wineCategory}</div>
-      </>
+      </section>
     );
   }
   return null;

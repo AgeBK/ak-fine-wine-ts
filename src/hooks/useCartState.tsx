@@ -12,18 +12,18 @@ const useCartState = (): UseCartStateReturnType => {
   const handleOpen = useCallback(
     (e: React.MouseEvent) => {
       e.stopPropagation();
-      !isOpen && setIsOpen(true);
+      if (!isOpen) setIsOpen(true);
     },
     [isOpen]
   );
 
   const handleClose = useCallback(() => {
-    isOpen && setIsOpen(false);
+    if (isOpen) setIsOpen(false);
   }, [isOpen]);
 
   useEffect(() => {
     const elem = ref.current;
-    if (!elem) return;
+    if (!elem) return undefined;
 
     elem.addEventListener("mousedown", (e) => handleOpen(e));
     document.addEventListener("mousedown", handleClose);

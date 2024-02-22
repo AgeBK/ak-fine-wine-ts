@@ -40,7 +40,11 @@ const ProductCart = ({
 
   const handleCount = (e: React.MouseEvent<Element, MouseEvent>) => {
     const { textContent } = e.currentTarget;
-    textContent === "+" ? setCount(count + 1) : setCount(count - 1);
+    if (textContent === "+") {
+      setCount(count + 1);
+    } else {
+      setCount(count - 1);
+    }
   };
 
   const deal = checkDeals(twoFor, tenFor, percentOff);

@@ -128,7 +128,7 @@ const categoryPageData = (
       case "white":
       case "red":
       case "sparkling":
-        arr = arr = categoryURLs["category"](data, urlCategory);
+        arr = categoryURLs["category"](data, urlCategory);
         break;
       default:
         break;
@@ -140,13 +140,13 @@ const categoryPageData = (
 
 const alphabetically = (arr: DataProps[], reverseOrder: boolean) => {
   arr.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
-  reverseOrder && arr.reverse();
+  if (reverseOrder) arr.reverse();
   return arr;
 };
 
 const financially = (arr: DataProps[], reverseOrder: boolean) => {
   arr.sort((a, b) => (a.price.current < b.price.current ? -1 : 1));
-  reverseOrder && arr.reverse();
+  if (reverseOrder) arr.reverse();
   return arr;
 };
 

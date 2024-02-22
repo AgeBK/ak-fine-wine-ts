@@ -64,9 +64,7 @@ const AutoComplete = () => {
     const handleInputChange = (_, val: string): void => {
       if (val.length <= 1) {
         if (open) setOpen(false);
-      } else {
-        if (!open) setOpen(true);
-      }
+      } else if (!open) setOpen(true);
     };
 
     return (
