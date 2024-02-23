@@ -8,6 +8,12 @@ I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (except
 
 The site uses RTK to share common data, I'm more familiar with Context but wanted to try out RTK. React Router for navigation, I've included a Search bar using MUI Autocomplete. The site also makes use of 2 custom hooks. For styling, it's using Flexbox via CSS modules. The site also includes loading and error components. Responsive design techniques have been taken into account, the site should present nicely on mobile and Desktop. I have used semantic HTML and taken accessibility into consideration. I have extensive lint rules in place as well
 
+## Features
+
+- Over 1600 products
+- Multiple filters (price, rating, variety)
+- Sorting (alphabetical, price, on sale items)
+
 ## The website has 3 main pages.
 
 The <b>home page</b> lists some the specials that the site has to offer, similar to what you'd probably see online, it's basically a navigation page/entry point for the other 2 pages.

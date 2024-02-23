@@ -8,6 +8,13 @@ type BreadCrumbProps = {
   category: string;
   variety: string;
 };
+//Todo:
+const Chevron = () => (
+  <span className={styles.chevronCont}>
+    <span className={styles.chevron}></span>
+    <span className={styles.chevron}></span>
+  </span>
+);
 
 const BreadCrumb = ({
   urlCategory,
@@ -15,13 +22,6 @@ const BreadCrumb = ({
   category,
   variety,
 }: BreadCrumbProps) => {
-  const Chevron = () => (
-    <span className={styles.chevronCont}>
-      <span className={styles.chevron}></span>
-      <span className={styles.chevron}></span>
-    </span>
-  );
-
   return (
     <div className={styles.breadCrumb}>
       <Link to="/" className={styles.category}>

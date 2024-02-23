@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetWinesQuery } from "../../services/API";
 import { Autocomplete, TextField } from "@mui/material";
@@ -39,7 +39,10 @@ const AutoComplete = () => {
 
     const handleBlur = (): void => setOverlay(false);
 
-    const handleChange = (_, val: ACDataProps | null): void => {
+    const handleChange = (
+      _: SyntheticEvent<Element, Event>,
+      val: ACDataProps | null
+    ): void => {
       if (val) {
         const { category, variety, id } = val;
         setOverlay(false);
@@ -61,7 +64,10 @@ const AutoComplete = () => {
       }
     };
 
-    const handleInputChange = (_, val: string): void => {
+    const handleInputChange = (
+      _: SyntheticEvent<Element, Event>,
+      val: string
+    ): void => {
       if (val.length <= 1) {
         if (open) setOpen(false);
       } else if (!open) setOpen(true);

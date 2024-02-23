@@ -8,7 +8,7 @@ import styles from "./Home.module.css";
 function Home() {
   const { data } = useGetWinesQuery();
 
-  if (data && Array.isArray(data)) {
+  if (data) {
     return (
       <article>
         <h2 className={styles.slogan}>

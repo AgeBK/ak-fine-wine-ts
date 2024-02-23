@@ -1,21 +1,20 @@
-import React from "react";
 import PageNumber from "../PageNumber";
 import ResultsPP from "../ResultsPP";
-import styles from "./CategoryFooter.module.css";
+import styles from "./CategoryPaging.module.css";
 
-type CategoryFooterProps = {
+type CategoryPagingProps = {
   currentData: DataProps[];
   paging: PagingProps;
   updatePaging: (paging: PagingProps) => void;
 };
 
-const CategoryFooter = ({
+const CategoryPaging = ({
   currentData,
   paging,
   updatePaging,
-}: CategoryFooterProps) => {
+}: CategoryPagingProps) => {
   return (
-    <div className={styles.categoryFooter}>
+    <div className={styles.CategoryPaging}>
       <div className={styles.pageNumCont}>
         <PageNumber
           currentData={currentData}
@@ -28,4 +27,4 @@ const CategoryFooter = ({
   );
 };
 
-export default CategoryFooter;
+export default CategoryPaging;

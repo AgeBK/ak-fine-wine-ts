@@ -10,14 +10,13 @@ import {
 import {
   MAX_MOBILE_WIDTH,
   pagingSettings,
-  filterSettings,
   mobileViewSettings,
 } from "../../data/appData.json";
 import CategoryList from "../CategoryList";
 import { Blurb } from "../Blurb";
 import CategoryHeader from "../CategoryHeader";
 import CategoryToggleItems from "../CategoryToggleItems";
-import CategorFooter from "../CategoryFooter";
+import CategoryPaging from "../CategoryPaging";
 import CategoryNoResults from "../CategoryNoResults";
 import FilterList from "../Filters/FilterList";
 import styles from "./Category.module.css";
@@ -143,7 +142,7 @@ const Category = () => {
             {currentData.length > 0 ? (
               <>
                 <CategoryList arr={pagedData} />
-                <CategorFooter
+                <CategoryPaging
                   currentData={currentData}
                   paging={paging}
                   updatePaging={updatePaging}

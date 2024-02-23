@@ -1,4 +1,4 @@
-.categoryFooter {
+.CategoryPaging {
   padding: 15px 0;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .categoryFooter {
+  .CategoryPaging {
     flex-direction: column;
   }
 
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .categoryFooter {
+  .CategoryPaging {
     flex-direction: column;
   }
 
