@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <footer className={styles.container}>
-      <div className={styles.ak}>© {yr} AK Fine Wines All rights reserved</div>
+      <div className={styles.ak}>© {yr} AK Fine Wines All rights reserved.</div>
       <ul className={styles.list}>
         {arr.map((val, ind) => (
           <li key={ind}>

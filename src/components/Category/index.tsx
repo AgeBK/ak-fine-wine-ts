@@ -27,29 +27,46 @@ type MobileViewProps = {
   items: boolean;
 };
 
+type ParamProps = {
+  category: string;
+  variety: string;
+};
+
 const Category = () => {
   const { data } = useGetWinesQuery();
   const [sortName, setSortName] = useState<string>("");
-  const [filters, setFilters] = useState<FilterProps>(filterSettings);
+  const [filters, setFilters] = useState<FilterProps>({});
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const [mobileView, setMobileView] =
     useState<MobileViewProps>(mobileViewSettings);
-  const { category: urlCategory, variety: urlVariety } = useParams();
+  const { category: urlCategory, variety: urlVariety } =
+    useParams<ParamProps>();
   const isMobileView: boolean = useMobileView(MAX_MOBILE_WIDTH);
   const dataRef = useRef<DataProps[]>([]);
   const headerRef = useRef<string>("");
+  const didMount = useRef<boolean>(false);
 
   useEffect(() => {
     setMobileView({ filters: !isMobileView, items: true });
   }, [isMobileView]);
 
   useEffect(() => {
-    // reset page if URl changes
-    setSortName("");
-    setFilters({});
-    dataRef.current = [];
-    headerRef.current = "";
+    if (didMount.current) {
+      // reset filters/sort variables if URL changes
+      setSortName("");
+      setFilters({});
+      dataRef.current = [];
+      headerRef.current = "";
+    } else {
+      didMount.current = true;
+    }
   }, [urlCategory, urlVariety]);
+
+  if (data && urlCategory && dataRef.current.length === 0) {
+    const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
+    dataRef.current = arr as DataProps[];
+    headerRef.current = header as string;
+  }
 
   const currentData = useMemo(() => {
     setPaging(pagingSettings);
@@ -65,18 +82,12 @@ const Category = () => {
     return arr;
   }, [filters, sortName]);
 
-  if (data && urlCategory && dataRef.current.length === 0) {
-    const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
-    dataRef.current = arr as DataProps[];
-    headerRef.current = header as string;
-  }
-
   const pagedData = currentData.slice(
     (paging.page - 1) * paging.pageSize,
     paging.page * paging.pageSize
   );
 
-  const updateFilters = (filter: object) =>
+  const updateFilters = (filter: FilterProps) =>
     setFilters({ ...filters, ...filter });
 
   const removeFilters = (val: string) => {

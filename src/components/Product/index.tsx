@@ -9,7 +9,7 @@ import BreadCrumb from "../BreadCrumb";
 
 import styles from "./Product.module.css";
 
-type ProductProps = {
+type ParamProps = {
   category: string;
   variety: string;
   id: string;
@@ -20,7 +20,7 @@ function Product() {
     category: urlCategory,
     variety: urlVariety,
     id: urlId,
-  } = useParams<ProductProps>();
+  } = useParams<ParamProps>();
   const { data } = useGetWinesQuery();
 
   if (data) {
@@ -31,10 +31,12 @@ function Product() {
         id,
         category,
         variety,
+        name,
         shortName,
         brand,
         packaging,
         unitOfMeasureLabel,
+        ratings: { average, total },
         price: { current, normal, twoFor, percentOff, tenFor },
         promotion: { calloutText, discountCode },
       } = product;
@@ -50,20 +52,20 @@ function Product() {
             />
             <ProductDetails
               id={id}
-              category={category}
-              variety={variety}
+              name={name}
+              shortName={shortName}
               brand={brand}
               packaging={packaging}
-              unitOfMeasureLabel={unitOfMeasureLabel}
               current={current}
-              normal={normal}
-              shortName={shortName}
               twoFor={twoFor}
               tenFor={tenFor}
               percentOff={percentOff}
               calloutText={calloutText}
               discountCode={discountCode}
+              average={average}
+              total={total}
               urlCategory={urlCategory}
+              urlVariety={urlVariety}
             />
             <ProductInfo
               id={id}

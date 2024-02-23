@@ -1,4 +1,5 @@
 import WineBlurb from "../WineBlurb";
+import ProductRating from "../ProductRating";
 import ProductCart from "../ProductCart";
 import Img from "../Image";
 import styles from "./ProductDetails.module.css";
@@ -17,8 +18,8 @@ type ProductDetailsProps = {
   packaging: string;
   calloutText?: string;
   discountCode?: string;
-  urlCategory: string;
-  urlVariety: string;
+  urlCategory?: string;
+  urlVariety?: string;
 };
 
 const ProductDetails = ({
@@ -51,16 +52,7 @@ const ProductDetails = ({
         <h1 className={styles.brand}>{brand}</h1>
         <h2 className={styles.shortName}>{shortName}</h2>
         <WineBlurb urlCategory={urlCategory} urlVariety={urlVariety} />
-        {average && Math.round(average) > 2 ? (
-          <>
-            <Img
-              image={`bg/${Math.round(average)}starLge.png`}
-              imageStyle=" "
-              imageAlt={`${Math.round(average)} star rating`}
-            />
-            <div className={styles.totalRate}>{total} Reviews</div>
-          </>
-        ) : null}
+        <ProductRating average={average} total={total} />
         <ProductCart
           id={id}
           name={name}

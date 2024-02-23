@@ -47,7 +47,6 @@
     { "text": "5 star rating", "value": "5" }
   ],
   "pagingSettings": { "page": 1, "pageSize": 40 },
-  "filterSettings": { "price": "", "variety": "", "rating": "" },
   "mobileViewSettings": { "filters": true, "items": true },
   "numberToWord": {
     "2": "two",
