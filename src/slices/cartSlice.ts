@@ -72,8 +72,6 @@ export const cartSlice = createSlice({
       if (promotionCode) {
         checkDiscountCode(state.cart, state.promotionCode);
       }
-
-      console.log(current(state.cart));
     },
     decrement: (state, action: PayloadAction<{ id: string; all: boolean }>) => {
       const { id, all } = action.payload;

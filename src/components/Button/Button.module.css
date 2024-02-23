@@ -145,6 +145,7 @@
 .pageNumber {
   font-size: 30px;
   padding: 5px;
+  letter-spacing: -5px;
 }
 
 .pageNumber:disabled {

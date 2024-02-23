@@ -81,30 +81,3 @@ declare global {
 }
 
 export {};
-
-// TODO: Generics version here vs below version??
-// type DataProps = Array<{
-//   id: string;
-//   name: string;
-//   brand: string;
-//   price: {
-//     normal: number;
-//     tenFor: number;
-//     twoFor: number;
-//     current: number;
-//     percentOff: number;
-//   };
-//   ratings: {
-//     total: number;
-//     average: number | string;
-//   };
-//   variety: string;
-//   category: string;
-//   volumeMl: number;
-//   packaging: string;
-//   promotion: {
-//     calloutText: string | null;
-//   };
-//   shortName: string;
-//   unitOfMeasureLabel: string;
-// }>;

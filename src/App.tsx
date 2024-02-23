@@ -5,8 +5,6 @@ import Category from "./components/Category";
 import Product from "./components/Product";
 import ScrollToTop from "./components/ScrollToTop";
 
-// TODO: React.mouseEvents import
-
 function App() {
   return (
     <Router>

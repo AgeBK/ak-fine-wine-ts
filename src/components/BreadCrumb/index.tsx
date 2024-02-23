@@ -8,7 +8,6 @@ type BreadCrumbProps = {
   category: string;
   variety: string;
 };
-//Todo:
 const Chevron = () => (
   <span className={styles.chevronCont}>
     <span className={styles.chevron}></span>

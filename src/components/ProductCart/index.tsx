@@ -33,10 +33,6 @@ const ProductCart = ({
   discountCode,
 }: ProductCartProps) => {
   const [count, setCount] = useState<number>(1);
-  console.log(percentOff);
-
-  console.log("ProductCart");
-  console.log(count);
 
   const handleCount = (e: React.MouseEvent<Element, MouseEvent>) => {
     const { textContent } = e.currentTarget;

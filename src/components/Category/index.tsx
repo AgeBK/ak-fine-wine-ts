@@ -40,8 +40,6 @@ const Category = () => {
   const [isShowItems, setIsShowItems] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log("UE Main");
-
     if (didMount.current) {
       // reset filters/sort variables if URL changes
       setSortName("");
@@ -54,14 +52,12 @@ const Category = () => {
   }, [urlCategory, urlVariety]);
 
   if (data && urlCategory && dataRef.current.length === 0) {
-    console.log("dataRef.current.length === 0");
     const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
     dataRef.current = arr as DataProps[];
     headerRef.current = header as string;
   }
 
   const currentData = useMemo(() => {
-    console.log("currentData");
     setPaging(pagingSettings);
     let arr = [...dataRef.current];
     if (arr.length) {
