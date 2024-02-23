@@ -3,23 +3,17 @@ import styles from "./CategoryToggleItems.module.css";
 
 type CategoryToggleItemsProps = {
   togglePageItems: () => void;
-  mobileView: {
-    filters: boolean;
-  };
+  isSmallScreen: boolean;
 };
 
 const CategoryToggleItems = ({
   togglePageItems,
-  mobileView,
+  isSmallScreen,
 }: CategoryToggleItemsProps) => {
   return (
     <div className={styles.smlScreen}>
       <Button css="filters" onClick={togglePageItems}>
-        {mobileView.filters ? (
-          <span className={styles.close}>X</span>
-        ) : (
-          "Filters"
-        )}
+        {isSmallScreen ? <span className={styles.close}>Filters</span> : "X"}
       </Button>
     </div>
   );

@@ -9,7 +9,10 @@ export const store = configureStore({
     cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }).concat(apiSlice.middleware),
 });
 
 setupListeners(store.dispatch);

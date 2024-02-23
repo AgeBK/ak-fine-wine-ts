@@ -21,11 +21,6 @@ import CategoryNoResults from "../CategoryNoResults";
 import FilterList from "../Filters/FilterList";
 import styles from "./Category.module.css";
 
-type MobileViewProps = {
-  filters: boolean;
-  items: boolean;
-};
-
 type ParamProps = {
   category: string;
   variety: string;
@@ -36,20 +31,17 @@ const Category = () => {
   const [sortName, setSortName] = useState<string>("");
   const [filters, setFilters] = useState<FilterProps>({});
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
-  const [mobileView, setMobileView] =
-    useState<MobileViewProps>(mobileViewSettings);
   const { category: urlCategory, variety: urlVariety } =
     useParams<ParamProps>();
-  const isMobileView: boolean = useMobileView(MAX_MOBILE_WIDTH);
+  const isSmallScreen: boolean = useMobileView(MAX_MOBILE_WIDTH);
   const dataRef = useRef<DataProps[]>([]);
   const headerRef = useRef<string>("");
   const didMount = useRef<boolean>(false);
+  const [isShowItems, setIsShowItems] = useState<boolean>(false);
 
   useEffect(() => {
-    setMobileView({ filters: !isMobileView, items: true });
-  }, [isMobileView]);
+    console.log("UE Main");
 
-  useEffect(() => {
     if (didMount.current) {
       // reset filters/sort variables if URL changes
       setSortName("");
@@ -62,12 +54,14 @@ const Category = () => {
   }, [urlCategory, urlVariety]);
 
   if (data && urlCategory && dataRef.current.length === 0) {
+    console.log("dataRef.current.length === 0");
     const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
     dataRef.current = arr as DataProps[];
     headerRef.current = header as string;
   }
 
   const currentData = useMemo(() => {
+    console.log("currentData");
     setPaging(pagingSettings);
     let arr = [...dataRef.current];
     if (arr.length) {
@@ -105,8 +99,7 @@ const Category = () => {
 
   const togglePageItems = () => {
     // either show filters or items on small screen
-    const { filters, items } = mobileView;
-    setMobileView({ filters: !filters, items: !items });
+    setIsShowItems((prev) => !prev);
   };
 
   return (
@@ -116,21 +109,29 @@ const Category = () => {
         urlVariety={urlVariety}
         header={headerRef.current}
       />
-      {isMobileView && (
+      {isSmallScreen && (
         <CategoryToggleItems
           togglePageItems={togglePageItems}
-          mobileView={mobileView}
+          isSmallScreen={isSmallScreen}
         />
       )}
       <div className={styles.category}>
-        {mobileView.filters && (
+        <div
+          className={
+            isSmallScreen && isShowItems ? styles.itemCont : styles.filterCont
+          }
+        >
           <FilterList
             updateFilters={updateFilters}
             filters={filters}
             currentData={currentData}
           />
-        )}
-        {mobileView.items && (
+        </div>
+        <div
+          className={
+            isSmallScreen && isShowItems ? styles.filterCont : styles.itemCont
+          }
+        >
           <section className={styles.categoryItems}>
             <CategoryHeader
               filters={filters}
@@ -152,7 +153,7 @@ const Category = () => {
               <CategoryNoResults />
             )}
           </section>
-        )}
+        </div>
       </div>
     </article>
   );
