@@ -83,6 +83,10 @@
   .productMain {
     height: 390px;
   }
+
+  .productMainCask {
+    height: 300px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -93,6 +97,10 @@
 
   .productMain {
     height: 290px;
+  }
+
+  .productMainCask {
+    height: 170px;
   }
 
   .tenFor100 {

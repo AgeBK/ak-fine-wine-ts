@@ -46,7 +46,9 @@ const ProductDetails = ({
       <div className={styles.productImg}>
         <Img
           image={`wine/${id}.jpg`}
-          imageStyle="productMain"
+          imageStyle={
+            packaging === "Bottle" ? "productMain" : "productMainCask"
+          }
           imageAlt="AK Fine Wines"
         />
       </div>
