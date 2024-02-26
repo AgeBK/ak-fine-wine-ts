@@ -10,7 +10,7 @@
 }
 
 .variety {
-  font-size: 60px;
+  font-size: 4rem;
   text-transform: capitalize;
 }
 
@@ -26,5 +26,15 @@
 @media screen and (max-width: 500px) {
   .categoryBlurb {
     flex-direction: column;
+    padding: 15px 0;
+  }
+  .variety {
+    font-size: 3rem;
+    text-transform: capitalize;
+  }
+
+  .varietyBlurb {
+    padding: 10px;
+    line-height: 20px;
   }
 }

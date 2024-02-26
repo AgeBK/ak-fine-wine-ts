@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { KeyboardEvent, SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetWinesQuery } from "../../services/API";
 import { Autocomplete, TextField } from "@mui/material";
@@ -9,7 +9,7 @@ import { hyphenate } from "../../data/utils";
 import { MAX_MOBILE_WIDTH } from "../../data/appData.json";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
-import useMobileView from "../../hooks/useMobileView";
+import usePageWidth from "../../hooks/usePageWidth";
 import Img from "../Image";
 import styles from "./AutoComplete.module.css";
 
@@ -25,7 +25,8 @@ const AutoComplete = () => {
   const { data } = useGetWinesQuery();
   const [overlay, setOverlay] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const isMobileView: boolean = useMobileView(MAX_MOBILE_WIDTH);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const isPageWidth: boolean = usePageWidth(MAX_MOBILE_WIDTH);
   const navigate = useNavigate();
 
   if (data) {
@@ -51,16 +52,17 @@ const AutoComplete = () => {
       }
     };
 
-    const handleKeyDown = (e): void => {
-      const {
-        key,
-        target: { value },
-      } = e;
+    const handleKeyDown = (
+      e: KeyboardEvent<HTMLDivElement> & {
+        defaultMuiPrevented?: boolean | undefined;
+      }
+    ): void => {
+      const { key } = e;
 
-      if (key === "Enter" && value) {
+      if (key === "Enter" && searchTerm) {
         setOverlay(false);
         setOpen(false);
-        navigate(`/search=${value}`);
+        navigate(`/search=${searchTerm}`);
       }
     };
 
@@ -68,6 +70,7 @@ const AutoComplete = () => {
       _: SyntheticEvent<Element, Event>,
       val: string
     ): void => {
+      setSearchTerm(val);
       if (val.length <= 1) {
         if (open) setOpen(false);
       } else if (!open) setOpen(true);
@@ -83,7 +86,7 @@ const AutoComplete = () => {
           onKeyDown={(e) => handleKeyDown(e)}
           getOptionLabel={(option: ACDataProps) => option.name}
           className={`${styles.autoComplete} ${
-            overlay ? styles.mobileView : ""
+            overlay ? styles.pageWidth : ""
           }`}
           options={ACData}
           filterOptions={createFilterOptions({
@@ -125,7 +128,7 @@ const AutoComplete = () => {
           }}
           renderInput={(params) => (
             <TextField
-              label={isMobileView ? "Search" : "What are you looking for?"}
+              label={isPageWidth ? "Search" : "What are you looking for?"}
               {...params}
               className={styles.tf}
               onClick={handleClick}

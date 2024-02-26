@@ -38,7 +38,7 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
         currentItems = FOUR_CAROUSEL_ITEMS;
       } else if (offsetWidth >= 650) {
         currentItems = THREE_CAROUSEL_ITEMS;
-      } else if (offsetWidth >= 420) {
+      } else if (offsetWidth >= 380) {
         currentItems = TWO_CAROUSEL_ITEMS;
       } else {
         currentItems = ONE_CAROUSEL_ITEM;

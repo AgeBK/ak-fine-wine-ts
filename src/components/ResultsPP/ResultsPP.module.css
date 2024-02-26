@@ -12,4 +12,9 @@
   .resultsPP {
     display: none;
   }
+
+  .resultsPP,
+  .resultsPPBtns {
+    margin-right: 0;
+  }
 }

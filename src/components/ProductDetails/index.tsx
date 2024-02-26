@@ -20,6 +20,7 @@ type ProductDetailsProps = {
   discountCode?: string;
   urlCategory?: string;
   urlVariety?: string;
+  isSmallscreen: boolean;
 };
 
 const ProductDetails = ({
@@ -38,6 +39,7 @@ const ProductDetails = ({
   discountCode,
   urlCategory,
   urlVariety,
+  isSmallScreen,
 }: ProductDetailsProps) => {
   return (
     <section className={styles.productCont}>
@@ -53,19 +55,21 @@ const ProductDetails = ({
         <h2 className={styles.shortName}>{shortName}</h2>
         <WineBlurb urlCategory={urlCategory} urlVariety={urlVariety} />
         <ProductRating average={average} total={total} />
-        <ProductCart
-          id={id}
-          name={name}
-          brand={brand}
-          shortName={shortName}
-          twoFor={twoFor}
-          tenFor={tenFor}
-          percentOff={percentOff}
-          current={current}
-          packaging={packaging}
-          calloutText={calloutText}
-          discountCode={discountCode}
-        />
+        {!isSmallScreen && (
+          <ProductCart
+            id={id}
+            name={name}
+            brand={brand}
+            shortName={shortName}
+            twoFor={twoFor}
+            tenFor={tenFor}
+            percentOff={percentOff}
+            current={current}
+            packaging={packaging}
+            calloutText={calloutText}
+            discountCode={discountCode}
+          />
+        )}
       </div>
     </section>
   );

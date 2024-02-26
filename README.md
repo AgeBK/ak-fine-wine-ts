@@ -16,7 +16,7 @@ Here's a link to the site: <a href="https://ak-fine-wines-ts.netlify.app/">AK Fi
 - Multiple filters (price, rating, variety)
 - Sorting (alphabetical, price, on sale items)
 - Paging
-- Items per page changer
+- Items per page selector
 - Search bar
 - Shopping Cart
 - Responsive carousel

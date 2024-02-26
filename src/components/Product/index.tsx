@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { productPageCarouselProducts } from "../../data/utils";
 import { useGetWinesQuery } from "../../services/API";
+import usePageWidth from "../../hooks/usePageWidth";
 import ProductDetails from "../ProductDetails";
+import ProductCart from "../ProductCart";
 import ProductReview from "../ProductReview";
 import ProductInfo from "../ProductInfo";
 import Carousel from "../Carousel";
@@ -22,6 +24,7 @@ function Product() {
     id: urlId,
   } = useParams<ParamProps>();
   const { data } = useGetWinesQuery();
+  const isSmallScreen = usePageWidth(750);
 
   if (data) {
     const product = data.find(({ id }: DataProps) => id === urlId);
@@ -66,7 +69,23 @@ function Product() {
               total={total}
               urlCategory={urlCategory}
               urlVariety={urlVariety}
+              isSmallScreen={isSmallScreen}
             />
+            {isSmallScreen && (
+              <ProductCart
+                id={id}
+                name={name}
+                brand={brand}
+                shortName={shortName}
+                twoFor={twoFor}
+                tenFor={tenFor}
+                percentOff={percentOff}
+                current={current}
+                packaging={packaging}
+                calloutText={calloutText}
+                discountCode={discountCode}
+              />
+            )}
             <ProductInfo
               id={id}
               category={category}

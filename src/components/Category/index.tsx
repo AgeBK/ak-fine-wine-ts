@@ -1,17 +1,13 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import { useGetWinesQuery } from "../../services/API";
 import { useParams } from "react-router-dom";
-import useMobileView from "../../hooks/useMobileView";
+import usePageWidth from "../../hooks/usePageWidth";
 import {
   categoryPageData,
   sortCategoryPageData,
   filterCategoryPageData,
 } from "../../data/utils";
-import {
-  MAX_MOBILE_WIDTH,
-  pagingSettings,
-  mobileViewSettings,
-} from "../../data/appData.json";
+import { MAX_MOBILE_WIDTH, pagingSettings } from "../../data/appData.json";
 import CategoryList from "../CategoryList";
 import { Blurb } from "../Blurb";
 import CategoryHeader from "../CategoryHeader";
@@ -33,15 +29,16 @@ const Category = () => {
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const { category: urlCategory, variety: urlVariety } =
     useParams<ParamProps>();
-  const isSmallScreen: boolean = useMobileView(MAX_MOBILE_WIDTH);
+  const isSmallScreen: boolean = usePageWidth(MAX_MOBILE_WIDTH);
   const dataRef = useRef<DataProps[]>([]);
   const headerRef = useRef<string>("");
   const didMount = useRef<boolean>(false);
   const [isShowItems, setIsShowItems] = useState<boolean>(false);
+  const isSmallScreenShowItems = isSmallScreen && isShowItems;
 
   useEffect(() => {
     if (didMount.current) {
-      // reset filters/sort variables if URL changes
+      // reset page variables if URL changes
       setSortName("");
       setFilters({});
       dataRef.current = [];
@@ -108,13 +105,13 @@ const Category = () => {
       {isSmallScreen && (
         <CategoryToggleItems
           togglePageItems={togglePageItems}
-          isSmallScreen={isSmallScreen}
+          isItems={isSmallScreenShowItems}
         />
       )}
       <div className={styles.category}>
         <div
           className={
-            isSmallScreen && isShowItems ? styles.itemCont : styles.filterCont
+            isSmallScreenShowItems ? styles.itemCont : styles.filterCont
           }
         >
           <FilterList
@@ -125,7 +122,7 @@ const Category = () => {
         </div>
         <div
           className={
-            isSmallScreen && isShowItems ? styles.filterCont : styles.itemCont
+            isSmallScreenShowItems ? styles.filterCont : styles.itemCont
           }
         >
           <section className={styles.categoryItems}>
