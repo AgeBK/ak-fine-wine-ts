@@ -7,7 +7,7 @@ import {
   sortCategoryPageData,
   filterCategoryPageData,
 } from "../../data/utils";
-import { MAX_MOBILE_WIDTH, pagingSettings } from "../../data/appData.json";
+import { MAX_SMALLSCREEN, pagingSettings } from "../../data/appData.json";
 import CategoryList from "../CategoryList";
 import { Blurb } from "../Blurb";
 import CategoryHeader from "../CategoryHeader";
@@ -29,7 +29,7 @@ const Category = () => {
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const { category: urlCategory, variety: urlVariety } =
     useParams<ParamProps>();
-  const isSmallScreen: boolean = usePageWidth(MAX_MOBILE_WIDTH);
+  const isSmallScreen: boolean = usePageWidth(MAX_SMALLSCREEN);
   const dataRef = useRef<DataProps[]>([]);
   const headerRef = useRef<string>("");
   const didMount = useRef<boolean>(false);

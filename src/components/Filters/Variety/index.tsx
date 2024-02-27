@@ -24,7 +24,7 @@ const VarietyFilter = ({
     <>
       <h3 className={styles.hdr}>Variety:</h3>
       {sortedArr.length > 0 ? (
-        <ul className={styles.list}>
+        <ul>
           {sortedArr.map(([variety, amount]) => (
             <li key={variety}>
               <input

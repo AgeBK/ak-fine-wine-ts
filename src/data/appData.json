@@ -1,5 +1,6 @@
 {
-  "MAX_MOBILE_WIDTH": 650,
+  "MAX_SMALLSCREEN": 650,
+  "HOME_10_100_IMG": 500,
   "MAX_CAROUSEL_PRODUCTS": 12,
   "SIX_CAROUSEL_ITEMS": 6,
   "FOUR_CAROUSEL_ITEMS": 4,
@@ -52,6 +53,24 @@
     "6": "six",
     "10": "ten"
   },
+  "campaingMini": [
+    {
+      "link": "/two-for-deals",
+      "hdr": "2 for Deals",
+      "blurb1": "2 great bottles",
+      "blurb2": "1 amazing price",
+      "imgSrc": "promotion/twoBotBlk1.jpg",
+      "imgAlt": "Two for Deals"
+    },
+    {
+      "link": "/10-and-less",
+      "hdr": "Get Down",
+      "blurb1": "$10 and less",
+      "blurb2": "Don't miss out on these",
+      "imgSrc": "promotion/multiBot.jpg",
+      "imgAlt": "$10 and Less"
+    }
+  ],
   "navArr": ["White", "Red", "Sparkling"],
   "productSource": "<i>Source *Wine Monthly: August 2023 </i> - [variety] blends from   South Eastern Austraila",
   "pillsArr": ["price", "rating", "variety"],

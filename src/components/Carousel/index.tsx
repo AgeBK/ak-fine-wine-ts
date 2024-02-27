@@ -65,7 +65,6 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
             />
           </Button>
         </div>
-        {/* // TODO: ? */}
         {arr.map(
           (
             {

@@ -1,4 +1,4 @@
-.products {
+.categoryList {
   display: flex;
   flex-wrap: wrap;
 }

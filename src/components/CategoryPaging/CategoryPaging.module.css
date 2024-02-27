@@ -1,4 +1,4 @@
-.CategoryPaging {
+.categoryPaging {
   padding: 15px 0;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .CategoryPaging {
+  .categoryPaging {
     flex-direction: column;
   }
 
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .CategoryPaging {
+  .categoryPaging {
     flex-direction: column;
   }
 

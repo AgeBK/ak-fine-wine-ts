@@ -7,7 +7,7 @@ type ArrProps = {
 
 const CategoryList = ({ arr }: ArrProps) => {
   return (
-    <div className={styles.products}>
+    <div className={styles.categoryList}>
       {arr.map(
         ({
           id,

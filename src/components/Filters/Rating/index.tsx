@@ -11,7 +11,7 @@ const RatingFilter = ({ filters, updateFilters }: WineFilterProps) => {
   return (
     <>
       <h3 className={styles.hdr}>Rating:</h3>
-      <ul className={styles.list}>
+      <ul>
         {arr.map(({ text, value }) => (
           <li key={value}>
             <input

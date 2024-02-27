@@ -23,7 +23,6 @@ function CategoryPageNumber({
         css="pageNumber"
         onClick={() => updatePaging({ page: 1, pageSize })}
         disabled={page <= 1}
-        
       >
         &lt;&lt;
       </Button>
@@ -40,14 +39,14 @@ function CategoryPageNumber({
       <Button
         css="pageNumber"
         onClick={() => updatePaging({ page: nextPage, pageSize })}
-        disabled={page === totalPages}
+        disabled={page >= totalPages}
       >
         &gt;
       </Button>
       <Button
         css="pageNumber"
         onClick={() => updatePaging({ page: totalPages, pageSize })}
-        disabled={page === totalPages}
+        disabled={page >= totalPages}
       >
         &gt;&gt;
       </Button>

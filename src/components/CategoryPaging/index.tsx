@@ -14,7 +14,7 @@ const CategoryPaging = ({
   updatePaging,
 }: CategoryPagingProps) => {
   return (
-    <div className={styles.CategoryPaging}>
+    <div className={styles.categoryPaging}>
       <div className={styles.pageNumCont}>
         <CategoryPageNumber
           currentData={currentData}

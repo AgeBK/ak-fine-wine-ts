@@ -6,7 +6,7 @@ import { createFilterOptions } from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import { hyphenate } from "../../data/utils";
-import { MAX_MOBILE_WIDTH } from "../../data/appData.json";
+import { MAX_SMALLSCREEN } from "../../data/appData.json";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 import usePageWidth from "../../hooks/usePageWidth";
@@ -26,7 +26,7 @@ const AutoComplete = () => {
   const [overlay, setOverlay] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const isPageWidth: boolean = usePageWidth(MAX_MOBILE_WIDTH);
+  const isPageWidth: boolean = usePageWidth(MAX_SMALLSCREEN);
   const navigate = useNavigate();
 
   if (data) {

@@ -15,13 +15,10 @@ const CarouselPaging = ({
   setPageIndex,
   handleClick,
 }: CarouselPagingProps) => {
-
   if (items) {
     const html: Array<JSX.Element> = [];
     const totalPages = Math.ceil(MAX_CAROUSEL_PRODUCTS / items);
     for (let i = 0; i < totalPages; i++) {
-      console.log(totalPages);
-
       const id: string = `CarouselPaging${i}`;
       html.push(
         <span key={id}>

@@ -1,12 +1,24 @@
+import { homePageCarouselProducts } from "../../data/utils";
+import { useGetWinesQuery } from "../../services/API";
+import { HOME_10_100_IMG, campaingMini } from "../../data/appData.json";
+import usePageWidth from "../../hooks/usePageWidth";
 import { Link } from "react-router-dom";
 import Carousel from "../Carousel";
 import Img from "../Image";
-import { homePageCarouselProducts } from "../../data/utils";
-import { useGetWinesQuery } from "../../services/API";
 import styles from "./Home.module.css";
+
+type CampainMiniProps = {
+  link: string;
+  hdr: string;
+  blurb1: string;
+  blurb2: string;
+  imgSrc: string;
+  imgAlt: string;
+};
 
 function Home() {
   const { data } = useGetWinesQuery();
+  const isSmallScreen: boolean = usePageWidth(HOME_10_100_IMG);
 
   if (data) {
     return (
@@ -16,14 +28,13 @@ function Home() {
         </h2>
         <Link to="/ten-for-100">
           <Img
-            image={"promotion/tenFor100.jpg"}
+            image={
+              isSmallScreen
+                ? "promotion/tenFor100Sml1.jpg"
+                : "promotion/tenFor100.jpg"
+            }
             imageStyle="tenFor100"
-            imageAlt="AK Fine Wines"
-          />
-          <Img
-            image={"promotion/tenFor100Sml1.jpg"}
-            imageStyle="tenFor100sml"
-            imageAlt="AK Fine Wines"
+            imageAlt="10 for 100"
           />
         </Link>
         <h2 className={styles.topOffers}>Top offers of the week</h2>
@@ -37,34 +48,30 @@ function Home() {
           </Link>
         </div>
         <div className={styles.campaignMini}>
-          <div className={styles.offer}>
-            <Link to="/two-for-deals">
-              <h3 className={styles.hdr}>2 for Deals</h3>
-              <div className={styles.twoForBlurb}>2 great bottles</div>
-              <div className={styles.twoForBlurb}>1 amazing price</div>
-              <Img
-                image={"promotion/twoBotBlk1.jpg"}
-                imageStyle="campaignMini"
-                imageAlt="two for deals"
-              />
-              <h3 className={styles.shopNow}>SHOP NOW</h3>
-            </Link>
-          </div>
-          <div className={styles.offer}>
-            <Link to="/10-and-less">
-              <h3 className={styles.hdr}>Get Down</h3>
-              <div className={styles.twoForBlurb}>$10 and less</div>
-              <div className={styles.twoForBlurb}>
-                Don&apos;t miss out on these
+          {campaingMini.map(
+            ({
+              link,
+              hdr,
+              blurb1,
+              blurb2,
+              imgSrc,
+              imgAlt,
+            }: CampainMiniProps) => (
+              <div className={styles.offer}>
+                <Link to={link}>
+                  <h3 className={styles.hdr}>{hdr}</h3>
+                  <div className={styles.twoForBlurb}>{blurb1}</div>
+                  <div className={styles.twoForBlurb}>{blurb2}</div>
+                  <Img
+                    image={imgSrc}
+                    imageStyle="campaignMini"
+                    imageAlt={imgAlt}
+                  />
+                  <h3 className={styles.shopNow}>SHOP NOW</h3>
+                </Link>
               </div>
-              <Img
-                image={"promotion/multiBot.jpg"}
-                imageStyle="campaignMini"
-                imageAlt="AK Fine Wines"
-              />
-              <h3 className={styles.shopNow}>SHOP NOW</h3>
-            </Link>
-          </div>
+            )
+          )}
         </div>
       </article>
     );
