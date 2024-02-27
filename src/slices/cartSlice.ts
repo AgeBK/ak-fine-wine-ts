@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { checkDiscountCode, checkMultiBuys } from "./cartUtils";
 
 type CartState = {

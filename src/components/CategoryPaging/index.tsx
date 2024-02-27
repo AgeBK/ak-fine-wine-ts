@@ -1,4 +1,4 @@
-import PageNumber from "../PageNumber";
+import CategoryPageNumber from "../CategoryPageNumber";
 import ResultsPP from "../ResultsPP";
 import styles from "./CategoryPaging.module.css";
 
@@ -16,7 +16,7 @@ const CategoryPaging = ({
   return (
     <div className={styles.CategoryPaging}>
       <div className={styles.pageNumCont}>
-        <PageNumber
+        <CategoryPageNumber
           currentData={currentData}
           paging={paging}
           updatePaging={updatePaging}

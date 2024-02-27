@@ -1,5 +1,5 @@
 import Button from "../Button";
-import styles from "./PageNumber.module.css";
+import styles from "./CategoryPageNumber.module.css";
 
 type PageNumberProps = {
   currentData: DataProps[];
@@ -7,7 +7,11 @@ type PageNumberProps = {
   updatePaging: (paging: PagingProps) => void;
 };
 
-function PageNumber({ currentData, paging, updatePaging }: PageNumberProps) {
+function CategoryPageNumber({
+  currentData,
+  paging,
+  updatePaging,
+}: PageNumberProps) {
   const { page, pageSize } = paging;
   const totalPages = Math.ceil(currentData.length / pageSize);
   const prevPage = page - 1;
@@ -19,6 +23,7 @@ function PageNumber({ currentData, paging, updatePaging }: PageNumberProps) {
         css="pageNumber"
         onClick={() => updatePaging({ page: 1, pageSize })}
         disabled={page <= 1}
+        
       >
         &lt;&lt;
       </Button>
@@ -50,4 +55,4 @@ function PageNumber({ currentData, paging, updatePaging }: PageNumberProps) {
   );
 }
 
-export default PageNumber;
+export default CategoryPageNumber;

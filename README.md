@@ -2,7 +2,7 @@
 
 ## About
 
-I built this little mock e-commerce style website from a JSON file I found online which contains retail wine store data with accompanying images. The web site has 35 components and the JSON file for the products is hosted on npoint.io. which contains over 1600 products.
+I built this mock e-commerce style website from a JSON file I found online which contains retail wine store data with accompanying images. The web site has 35 components and the JSON file for the products is hosted on npoint.io. which contains over 1600 products.
 
 I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (I use the MUI Autocomplete Component via NPM for the search)
 

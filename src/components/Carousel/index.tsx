@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import ProductItem from "../ProductItem";
+import CarouselPaging from "../CarouselPaging";
 import Button from "../Button";
 import Img from "../Image";
 import {
-  MAX_CAROUSEL_PRODUCTS,
   SIX_CAROUSEL_ITEMS,
   FOUR_CAROUSEL_ITEMS,
   THREE_CAROUSEL_ITEMS,
@@ -20,10 +20,6 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
 
   const handleClick = (val: number): void =>
     setPageIndex((prev: number) => prev + val);
-
-  const handleChange = ({
-    target: { value },
-  }: React.ChangeEvent<HTMLInputElement>) => setPageIndex(Number(value));
 
   const calculateItems = useCallback((): void => {
     if (ref.current && ref.current.offsetWidth) {
@@ -53,48 +49,6 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
     return () => window.removeEventListener("resize", calculateItems);
   }, [calculateItems]);
 
-  const CarouselPaging = () => {
-    if (items) {
-      const html: Array<JSX.Element> = [];
-      for (let i = 0; i < MAX_CAROUSEL_PRODUCTS / items; i++) {
-        const id: string = `CarouselPaging${i}`;
-        html.push(
-          <span key={id}>
-            <label htmlFor={id}>{`page ${i + 1}`}</label>
-            <input
-              type="radio"
-              name="carouselPaging"
-              id={id}
-              value={i}
-              onChange={handleChange}
-              checked={i === pageIndex}
-            />
-          </span>
-        );
-      }
-      return (
-        <div className={styles.carouselPaging}>
-          <Button
-            css="pageNumber"
-            onClick={() => handleClick(-1)}
-            disabled={pageIndex <= 0}
-          >
-            &lt;
-          </Button>
-          {html}
-          <Button
-            css="pageNumber"
-            onClick={() => handleClick(1)}
-            disabled={pageIndex >= totalPages}
-          >
-            &gt;
-          </Button>
-        </div>
-      );
-    }
-    return null;
-  };
-
   return (
     <>
       <div className={styles.carousel} ref={ref}>
@@ -111,6 +65,7 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
             />
           </Button>
         </div>
+        {/* // TODO: ? */}
         {arr.map(
           (
             {
@@ -167,7 +122,12 @@ const Carousel = ({ arr }: { arr: DataProps[] }) => {
           </Button>
         </div>
       </div>
-      <CarouselPaging />
+      <CarouselPaging
+        items={items}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+        handleClick={handleClick}
+      />
     </>
   );
 };
