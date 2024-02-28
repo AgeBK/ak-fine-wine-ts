@@ -8,10 +8,12 @@ type ReslutPPProps = {
 };
 
 const ResultsPP = ({ paging, updatePaging }: ReslutPPProps) => {
-  const handleClick = (e: React.MouseEvent<Element, MouseEvent>) => {
+  const handleClick = ({
+    currentTarget: { textContent },
+  }: React.MouseEvent<Element, MouseEvent>) => {
     updatePaging({
       page: 1,
-      pageSize: Number(e.currentTarget.textContent),
+      pageSize: Number(textContent),
     });
   };
 

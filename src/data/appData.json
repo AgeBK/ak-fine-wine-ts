@@ -55,6 +55,7 @@
   },
   "campaingMini": [
     {
+      "id" :1,
       "link": "/two-for-deals",
       "hdr": "2 for Deals",
       "blurb1": "2 great bottles",
@@ -63,6 +64,7 @@
       "imgAlt": "Two for Deals"
     },
     {
+      "id" :2,
       "link": "/10-and-less",
       "hdr": "Get Down",
       "blurb1": "$10 and less",

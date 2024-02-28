@@ -20,7 +20,7 @@ type ProductDetailsProps = {
   discountCode?: string;
   urlCategory?: string;
   urlVariety?: string;
-  isSmallscreen: boolean;
+  isSmallScreen: boolean;
 };
 
 const ProductDetails = ({
@@ -49,7 +49,7 @@ const ProductDetails = ({
           imageStyle={
             packaging === "Bottle" ? "productMain" : "productMainCask"
           }
-          imageAlt="AK Fine Wines"
+          imageAlt={name}
         />
       </div>
       <div className={styles.productMeta}>

@@ -9,7 +9,7 @@ type SortProps = {
 };
 
 function Sort({ sortName, setSortName }: SortProps) {
-  const update = ({ target: { value } }: ChangeEvent<HTMLSelectElement>) =>
+  const handleSelect = ({ target: { value } }: ChangeEvent<HTMLSelectElement>) =>
     setSortName(value);
 
   return (
@@ -18,7 +18,7 @@ function Sort({ sortName, setSortName }: SortProps) {
         <select
           id="sort"
           name="filters"
-          onChange={(e) => update(e)}
+          onChange={(e) => handleSelect(e)}
           className={styles.select}
           aria-labelledby="lblSort"
           value={sortName}

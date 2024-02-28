@@ -16,6 +16,7 @@ const PriceDrop = ({ calloutText }: PriceDropProps) => {
 
   if (calloutText) {
     if (calloutText.includes("for")) {
+      // 2 for and 10 for deals
       arr = calloutText.split(" ");
       amount = numToWord[Number(arr[0])];
       price = parseInt(arr[2].replace("$", ""), 10);
@@ -51,16 +52,18 @@ const PriceDrop = ({ calloutText }: PriceDropProps) => {
       </div>
     );
   } else {
-    <Link to="/price-drop" className={styles.sale}>
-      <span className={styles.priceDrop}>
-        PRICE <br /> DROPXX
-      </span>
-      <span className={styles.seeAll}>
-        See
-        <br />
-        All
-      </span>
-    </Link>;
+    priceDropLink = (
+      <Link to="/price-drop" className={styles.sale}>
+        <span className={styles.priceDrop}>
+          PRICE <br /> DROP
+        </span>
+        <span className={styles.seeAll}>
+          See
+          <br />
+          All
+        </span>
+      </Link>
+    );
   }
 
   return priceDropLink;

@@ -8,6 +8,7 @@ import Img from "../Image";
 import styles from "./Home.module.css";
 
 type CampainMiniProps = {
+  id: number;
   link: string;
   hdr: string;
   blurb1: string;
@@ -50,6 +51,7 @@ function Home() {
         <div className={styles.campaignMini}>
           {campaingMini.map(
             ({
+              id,
               link,
               hdr,
               blurb1,
@@ -57,7 +59,7 @@ function Home() {
               imgSrc,
               imgAlt,
             }: CampainMiniProps) => (
-              <div className={styles.offer}>
+              <div className={styles.offer} key={id}>
                 <Link to={link}>
                   <h3 className={styles.hdr}>{hdr}</h3>
                   <div className={styles.twoForBlurb}>{blurb1}</div>
@@ -72,6 +74,14 @@ function Home() {
               </div>
             )
           )}
+        </div>
+        <div className={styles.campaign}>
+          <Link to="/price-drop">
+            <h2 className={styles.tenOff}>WEEKLY SPECIALS</h2>
+            <h2 className={styles.selected}>100's of discounted wines</h2>
+            <h2 className={styles.shopNow}>SHOP NOW</h2>
+            <div className={styles.finePrint}>(Ends Sunday, 5pm)</div>
+          </Link>
         </div>
       </article>
     );

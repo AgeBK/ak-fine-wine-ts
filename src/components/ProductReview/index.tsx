@@ -2,7 +2,12 @@ import { reviews, productSource } from "../../data/appData.json";
 import styles from "./ProductReview.module.css";
 const review: KeyStringProps = reviews;
 
-const ProductReview = ({urlCategory, variety}) => {
+type ProductReviewProps = {
+  urlCategory: string;
+  variety: string;
+};
+
+const ProductReview = ({ urlCategory, variety }: ProductReviewProps) => {
   return (
     <div className={styles.reviews}>
       <h2>Product Review:</h2>

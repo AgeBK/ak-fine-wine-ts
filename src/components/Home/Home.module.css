@@ -6,7 +6,7 @@
 
 .topOffers {
   text-align: center;
-  font-size: 40px;
+  font-size: 2.5rem;
   line-height: 40px;
   margin-bottom: 20px;
 }
@@ -89,7 +89,7 @@
 
   .topOffers {
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
     line-height: 30px;
     margin: 10px 0;
   }

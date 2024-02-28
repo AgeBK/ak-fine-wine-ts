@@ -1,13 +1,12 @@
 import { blurb } from "../../data/appData.json";
 import styles from "./WineBlurb.module.css";
 
-const WineBlurb = ({
-  urlCategory,
-  urlVariety,
-}: {
+type WineBlurbProps = {
   urlCategory: string | undefined;
   urlVariety: string | undefined;
-}) => {
+};
+
+const WineBlurb = ({ urlCategory, urlVariety }: WineBlurbProps) => {
   const wineData: KeyStringProps = blurb;
   let synopsis = "";
   if (urlVariety && wineData[urlVariety]) {

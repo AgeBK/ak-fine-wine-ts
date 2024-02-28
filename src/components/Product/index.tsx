@@ -8,7 +8,6 @@ import ProductReview from "../ProductReview";
 import ProductInfo from "../ProductInfo";
 import Carousel from "../Carousel";
 import BreadCrumb from "../BreadCrumb";
-
 import styles from "./Product.module.css";
 
 type ParamProps = {
