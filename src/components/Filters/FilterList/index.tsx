@@ -20,6 +20,7 @@ const FilterList = ({
   urlVariety,
   updateFilters,
 }: FilterListProps) => {
+
   const filterArr = [
     <PriceFilter
       updateFilters={updateFilters}

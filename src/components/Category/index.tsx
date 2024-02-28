@@ -115,9 +115,10 @@ const Category = () => {
           }
         >
           <FilterList
-            updateFilters={updateFilters}
-            filters={filters}
             currentData={currentData}
+            filters={filters}
+            urlVariety={urlVariety}
+            updateFilters={updateFilters}
           />
         </div>
         <div
