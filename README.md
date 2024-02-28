@@ -2,13 +2,14 @@
 
 ## About
 
-I built this mock e-commerce style website from a JSON file I found online which contains retail wine store data with accompanying images. The web site has 35 components and the JSON file for the products is hosted on npoint.io. which contains over 1600 products.
+I built this mock e-commerce style website from a JSON file I found online which contains retail wine store data with accompanying images. The web site has 44 components and the JSON file for the products is hosted on npoint.io. which contains over 1600 products.
 
 I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (I use the MUI Autocomplete Component via NPM for the search)
 
-The site uses RTK to share common data, I'm more familiar with Context but wanted to try out RTK. React Router for navigation, I've included a Search bar using MUI Autocomplete. The site also makes use of 2 custom hooks. For styling, it's using Flexbox via CSS modules. The site also includes loading and error components. Responsive design techniques have been taken into account, the site should present nicely on mobile and desktop. I have used semantic HTML and taken accessibility and SEO into consideration. I have extensive lint rules in place as well
+The site uses RTK to share common data, I'm more familiar with Context but wanted to try out RTK. React Router for navigation, I've included a Search bar using MUI Autocomplete. The site also makes use of 2 custom hooks. For styling, it's using Flexbox via CSS modules. The site also includes loading and error components. Responsive design techniques have been taken into account, the site should present nicely on mobile and desktop. I have used semantic HTML, compressed the wine images and taken accessibility and SEO into consideration. I have extensive lint rules in place as well
 
 Here's a link to the site: <a href="https://ak-fine-wines-ts.netlify.app/">AK Fine Wines</a>
+Here's a link to the JavaScript version: <a href="https://github.com/AgeBK/ak-fine-wines">GitHub</a>
 
 ## Features
 
