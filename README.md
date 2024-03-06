@@ -9,6 +9,7 @@ I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (I use 
 The site uses RTK to share common data, I'm more familiar with Context but wanted to try out RTK. React Router for navigation, I've included a Search bar using MUI Autocomplete. The site also makes use of 2 custom hooks. For styling, it's using Flexbox via CSS modules. The site also includes loading and error components. Responsive design techniques have been taken into account, the site should present nicely on mobile and desktop. I have used semantic HTML, compressed the wine images and taken accessibility and SEO into consideration. I have extensive lint rules in place as well
 
 Here's a link to the site: <a href="https://ak-fine-wines-ts.netlify.app/">AK Fine Wines</a>
+
 Here's a link to the JavaScript version: <a href="https://github.com/AgeBK/ak-fine-wines">GitHub</a>
 
 ## Features
