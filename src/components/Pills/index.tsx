@@ -22,18 +22,17 @@ const Pills = ({ filters, removeFilters }: PillsProps) => {
     []
   );
 
-  return (
-    <>
-      {html.length > 0 ? (
-        <div className={styles.pillCont}>
-          {html}
-          <Button css="link" onClick={() => removeFilters("all")}>
-            Clear all
-          </Button>
-        </div>
-      ) : null}
-    </>
-  );
+  if (html.length > 0) {
+    return (
+      <div className={styles.pillCont}>
+        {html}
+        <Button css="link" onClick={() => removeFilters("all")}>
+          Clear all
+        </Button>
+      </div>
+    );
+  }
+  return null;
 };
 
 export default Pills;

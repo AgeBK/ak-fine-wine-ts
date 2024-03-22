@@ -25,6 +25,7 @@
     "malbec": "Malbec is a medium to full-bodied red wine and is dark in colour. Dry and filled with notes of tannin, Malbec expresses ripe and flavoursome dark fruit flavours such as plum and blackberry on the palate. Our range of Malbec is sourced from Mendoza, Clare Valley and more.",
     "chardonnay": "A dry white wine that has tasting notes ranging from lemon to apple, this variety is one of the most popular wines in the country. Often associated with Victoria's Yarra Valley and West Australia's Margaret River region, it is ideal for garden parties in the sun, and goes great with any seafood dish.",
     "sauvignon-blanc": "A popular medium bodied white wine that often has notes of lime and green apple, it is most associated with growing in New Zealand's Marlborough and Australia's Margaret River regions. Award winning labels include those from Cloudy Bay (NZ) and Leeuwin Estate. Great for a light summer lunch outdoors, have it with any poached seafood.",
+    "sem-sauv-blanc": "The Semillon gives a fresh citrus palate whilst the Sauvignon Blanc lends a more herbaceous mid palate. The sugar dosage lifts both the citrus fruit and the grassy notes and gives a sweetness that makes the wine fresh and fruity.",
     "pinot-gris-grigio": "A popular medium bodied wine that has notes of apple and pear, it is most commonly grown in New Zealand's Marlborough region and also Victoria's Yarra Valley. Award winning labels include Innocent Bystander and Squealing Pig (NZ). A good table wine for those outdoor parties, we recommend matching it with fish and chips.",
     "riesling": "A dry sweet wine that has notes of lime and lemon, it is produced in many parts of Australia, however is most commonly associated with South Australia's Clare Valley. Popular labels include those from Pikes and the Crafty Punter. Perfect to be had in the sun at those outdoor parties, it matches well with spicy fragrant thai curries.",
     "semillon": "A dry full bodied wine that has hints of citrus and honey, it is most commonly grown in Australia, particularly the Margaret River region. A popular label and a good place to start is the Story Bay winery. Best served chilled for those outdoor gatherings, it goes well with roast chicken.",
@@ -55,7 +56,7 @@
   },
   "campaingMini": [
     {
-      "id" :1,
+      "id": 1,
       "link": "/two-for-deals",
       "hdr": "2 for Deals",
       "blurb1": "2 great bottles",
@@ -64,8 +65,8 @@
       "imgAlt": "Two for Deals"
     },
     {
-      "id" :2,
-      "link": "/10-and-less",
+      "id": 2,
+      "link": "/ten-and-less",
       "hdr": "Get Down",
       "blurb1": "$10 and less",
       "blurb2": "Don't miss out on these",

@@ -1,7 +1,7 @@
 import { MAX_CAROUSEL_PRODUCTS } from "./appData.json";
 
-const hyphenate = (text: string) =>
-  typeof text === "string" && text.toLowerCase().replace(/ /gi, "-");
+const hyphenate = (text: string | undefined) =>
+  typeof text === "string" ? text.toLowerCase().replace(/ /gi, "-") : undefined;
 
 const deHyphenate = (text: string) =>
   typeof text === "string" && text.toLowerCase().replace(/-/gi, " ");
@@ -114,7 +114,7 @@ const categoryPageData = (
         arr = categoryURLs["ten-percent-off"](data);
         header = "10% OFF";
         break;
-      case "10-and-less":
+      case "ten-and-less":
         arr = categoryURLs["ten-and-less"](data);
         header = "$10 and less";
         break;

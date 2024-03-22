@@ -43,7 +43,7 @@ const FilterList = ({
         {filterArr.map((val) => {
           return <li key={val.key}>{val}</li>;
         })}
-        {!urlVariety && !filters.variety && (
+        {!urlVariety && (
           <li>
             <VarietyFilter
               updateFilters={updateFilters}

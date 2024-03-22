@@ -6,6 +6,7 @@ import {
   categoryPageData,
   sortCategoryPageData,
   filterCategoryPageData,
+  hyphenate,
 } from "../../data/utils";
 import { MAX_SMALLSCREEN, pagingSettings } from "../../data/appData.json";
 import CategoryList from "../CategoryList";
@@ -31,10 +32,10 @@ const Category = () => {
     useParams<ParamProps>();
   const isSmallScreen: boolean = usePageWidth(MAX_SMALLSCREEN);
   const dataRef = useRef<DataProps[]>([]);
-  const headerRef = useRef<string>("");
   const didMount = useRef<boolean>(false);
   const [isShowItems, setIsShowItems] = useState<boolean>(false);
   const isSmallScreenShowItems = isSmallScreen && isShowItems;
+  let strHeader = "";
 
   useEffect(() => {
     if (didMount.current) {
@@ -42,16 +43,16 @@ const Category = () => {
       setSortName("");
       setFilters({});
       dataRef.current = [];
-      headerRef.current = "";
     } else {
       didMount.current = true;
     }
   }, [urlCategory, urlVariety]);
 
   if (data && urlCategory && dataRef.current.length === 0) {
-    const [arr, header] = categoryPageData(data, urlCategory, urlVariety);
+    const variety = filters.variety || urlVariety;
+    const [arr, header] = categoryPageData(data, urlCategory, variety);
     dataRef.current = arr as DataProps[];
-    headerRef.current = header as string;
+    strHeader = header as string;
   }
 
   const currentData = useMemo(() => {
@@ -97,11 +98,13 @@ const Category = () => {
 
   return (
     <article>
-      <Blurb
-        urlCategory={urlCategory}
-        urlVariety={urlVariety}
-        header={headerRef.current}
-      />
+      {urlCategory && (
+        <Blurb
+          urlCategory={urlCategory}
+          variety={urlVariety || hyphenate(filters.variety)}
+          header={strHeader}
+        />
+      )}
       {isSmallScreen && (
         <CategoryToggleItems
           togglePageItems={togglePageItems}
@@ -115,7 +118,7 @@ const Category = () => {
           }
         >
           <FilterList
-            currentData={currentData}
+            currentData={dataRef.current}
             filters={filters}
             urlVariety={urlVariety}
             updateFilters={updateFilters}
