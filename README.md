@@ -17,6 +17,8 @@ React Router for navigation, I've included a Search bar using MUI Autocomplete. 
 
 The site uses npoint.io for the backend which hosts a JSON file with all of the products for the site. The backend functionallity is quite limited, you can either fetch all of your JSON or fetch by index of the product so I just fetch them all and filtering is all done on the front end. Ideally, it would be better to fetch by product id, product category etc.
 
+I've built a shopping cart as well which you can add products to, increase and decrease amounts and enter a discount code. Caluclations are automatically made in the cart for any discounts (2 for $XX, 10 for $100 etc) The idea being that the user can have a simulated on-line shopping experience.
+
 ## Features
 
 - Over 1600 products
@@ -36,5 +38,3 @@ The <b>home</b> page lists some the specials that the site has to offer, similar
 The <b>category</b> page lists all the products for a particular category of wines depending what URL you come in on. eg: red, white, 10% off and many more. The wines displayed can be filtered, sorted, items per page can be adjusted.
 
 The <b>product</b> page displays all the details about an individual product.
-
-I've built a shopping cart as well which you can add products to, increase and decrease amounts and enter a discount code. Caluclations are automatically made in the cart for any discounts (2 for $XX, 10 for $100 etc) The idea being that the user can have a simulated on-line shopping experience.
