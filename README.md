@@ -8,10 +8,6 @@ Here's a link to preview the site: <a target="_blank" href="https://ak-fine-wine
 
 Here's a link to the JavaScript version code base: <a target="_blank" href="https://github.com/AgeBK/ak-fine-wines">GitHub</a>
 
-<img scr="https://ak-fine-wines-ts.netlify.app/src/assets/img/screenshots/home.png" alt="home page" style="height: 300px,width:400px" />
-<img scr="https://ak-fine-wines-ts.netlify.app/src/assets/img/screenshots/category.png" alt="category page" style="height: 300px,width:400px" />
-<img scr="https://ak-fine-wines-ts.netlify.app/src/assets/img/screenshots/product.png" alt="product page" style="height: 300px,width:400px" />
-
 I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (I used the MUI Autocomplete Component via NPM for the search).
 
 ## Description
