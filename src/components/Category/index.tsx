@@ -39,7 +39,7 @@ const Category = () => {
 
   useEffect(() => {
     if (didMount.current) {
-      // reset page variables if URL changes
+      // reset page variables if URL changes, not on first load
       setSortName("");
       setFilters({});
       dataRef.current = [];

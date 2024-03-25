@@ -16,6 +16,7 @@ declare global {
     };
     variety: string;
     category: string;
+    region: string;
     volumeMl: number;
     packaging: string;
     promotion: {
@@ -64,8 +65,6 @@ declare global {
     [id: string]: CartItemProps;
   };
 
-  type FilterProps = { price?: string; variety?: string; rating?: string };
-
   type TextValueArrProps = { text: string; value: string };
 
   type PagingProps = { page: number; pageSize: number };
@@ -73,6 +72,15 @@ declare global {
   type KeyStringProps = { [key: string]: string };
 
   type KeyNumberProps = { [key: string]: number };
+
+  type KeyBooleanProps = { [key: string]: boolean };
+
+  type FilterProps = {
+    price?: string;
+    variety?: string;
+    rating?: string;
+    region?: KeyBooleanProps;
+  };
 
   interface WineFilterProps {
     updateFilters: (filters: FilterProps) => void;

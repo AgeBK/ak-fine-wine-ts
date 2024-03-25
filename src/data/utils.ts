@@ -180,7 +180,7 @@ const sortCategoryPageData = (arr: DataProps[], value: string) => {
 };
 
 const filterCategoryPageData = (arr: DataProps[], filters: FilterProps) => {
-  const { price, rating, variety } = filters;
+  const { price, rating, variety, region } = filters;
 
   if (price) {
     const [min, max] = price.split("-");
@@ -189,13 +189,22 @@ const filterCategoryPageData = (arr: DataProps[], filters: FilterProps) => {
         current >= Number(min) && current < Number(max)
     );
   }
+
   if (rating) {
     arr = arr.filter(
       ({ ratings: { average } }) => Math.round(average) === Number(rating)
     );
   }
+
   if (variety) {
     arr = arr.filter(({ variety: wineType }) => wineType === variety);
+  }
+
+  if (region) {
+    const checked = Object.keys(region).filter((key) => region[key]);
+    if (checked.length) {
+      arr = arr.filter(({ region }) => checked.includes(region));
+    }
   }
   return arr;
 };

@@ -1,0 +1,13 @@
+.hdr {
+  margin-bottom: 10px;
+}
+
+.radio {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.amount {
+  color: #555;
+  font-size: 0.9rem;
+}

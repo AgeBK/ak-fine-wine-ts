@@ -1,6 +1,7 @@
 import PriceFilter from "../Price";
 import RatingFilter from "../Rating";
 import VarietyFilter from "../Variety";
+import RegionFilter from "../Region";
 import styles from "./FilterList.module.css";
 
 type FilterListProps = {
@@ -20,7 +21,6 @@ const FilterList = ({
   urlVariety,
   updateFilters,
 }: FilterListProps) => {
-
   const filterArr = [
     <PriceFilter
       updateFilters={updateFilters}
@@ -31,6 +31,12 @@ const FilterList = ({
       filters={filters}
       updateFilters={updateFilters}
       key="RatingFilter"
+    />,
+    <RegionFilter
+      filters={filters}
+      updateFilters={updateFilters}
+      key="RegionFilter"
+      currentData={currentData}
     />,
   ];
 

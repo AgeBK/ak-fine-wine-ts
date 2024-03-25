@@ -7,7 +7,7 @@ export const apiSlice = createApi({
   }),
   endpoints: (builder) => ({
     getWines: builder.query<DataProps[], void>({
-      query: () => `/088c160e1281bf6ff571`,
+      query: () => `/50aefbd7ecf2b77a3260`,
     }),
   }),
 });

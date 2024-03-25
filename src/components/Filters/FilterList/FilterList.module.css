@@ -31,7 +31,8 @@
   cursor: pointer;
 }
 
-.filterList input[type="radio"] {
+.filterList input[type="radio"],
+.filterList input[type="checkbox"] {
   margin: 4px 10px 10px 0;
 }
 
