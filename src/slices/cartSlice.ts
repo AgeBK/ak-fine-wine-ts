@@ -96,7 +96,7 @@ export const cartSlice = createSlice({
               twoForDeals.splice(ind, 1);
             }
           } else {
-            state.tenForDeals -= quantity;
+            state.tenForDeals -= all ? quantity : 1;
           }
           if (
             (twoFor &&

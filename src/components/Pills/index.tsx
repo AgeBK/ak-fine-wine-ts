@@ -8,19 +8,27 @@ type PillsProps = {
 };
 
 const Pills = ({ filters, removeFilters }: PillsProps) => {
-  const arr: string[] = pillsArr;
-  const html = arr.reduce(
-    (acc: JSX.Element[], val: string) =>
-      filters[val as keyof FilterProps]
-        ? (acc = [
-            ...acc,
-            <Button css="pills" onClick={() => removeFilters(val)} key={val}>
-              {val} <span className={styles.close}>X</span>
-            </Button>,
-          ])
-        : acc,
-    []
-  );
+  const isRegionChecked = (regionObj: KeyBooleanProps) =>
+    Object.values(regionObj).some((val) => val);
+
+  const html = pillsArr.reduce((acc: JSX.Element[], val: string) => {
+    const currentFilter = filters[val as keyof FilterProps];
+    if (currentFilter) {
+      // for region filter, check object for true values
+      const regionFilter =
+        typeof currentFilter == "object" && isRegionChecked(currentFilter);
+
+      if (currentFilter.length || regionFilter) {
+        acc = [
+          ...acc,
+          <Button css="pills" onClick={() => removeFilters(val)} key={val}>
+            {val} <span className={styles.close}>X</span>
+          </Button>,
+        ];
+      }
+    }
+    return acc;
+  }, []);
 
   if (html.length > 0) {
     return (
