@@ -26,7 +26,7 @@ module.exports = {
     "block-scoped-var": "error",
     complexity: "error",
     "consistent-return": "error",
-    eqeqeq: ["error", "smart"],
+    eqeqeq: "error",
     "guard-for-in": "error",
     "no-alert": "error",
     "no-caller": "error",

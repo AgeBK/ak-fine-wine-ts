@@ -16,7 +16,7 @@ const Pills = ({ filters, removeFilters }: PillsProps) => {
     if (currentFilter) {
       // for region filter, check object for true values
       const regionFilter =
-        typeof currentFilter == "object" && isRegionChecked(currentFilter);
+        typeof currentFilter === "object" && isRegionChecked(currentFilter);
 
       if (currentFilter.length || regionFilter) {
         acc = [
