@@ -18,6 +18,7 @@ const CarouselPaging = ({
   if (items) {
     const html: Array<JSX.Element> = [];
     const totalPages = Math.ceil(MAX_CAROUSEL_PRODUCTS / items);
+
     for (let i = 0; i < totalPages; i++) {
       const id: string = `CarouselPaging${i}`;
       html.push(
@@ -34,6 +35,7 @@ const CarouselPaging = ({
         </span>
       );
     }
+
     return (
       <div className={styles.carouselPaging}>
         <Button
@@ -43,7 +45,7 @@ const CarouselPaging = ({
         >
           &lt;
         </Button>
-        {html}
+        <span role="radiogroup">{html}</span>
         <Button
           css="pageNumber"
           onClick={() => handleClick(1)}

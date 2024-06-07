@@ -25,7 +25,8 @@ const BreadCrumb = ({
   return (
     <div className={styles.breadCrumb}>
       <Link to="/" className={styles.category}>
-        <Img image={`icons/home.png`} imageStyle="" imageAlt="AK Fine Wines" />
+        {/* WAVE tool alerts when passing alt text here */}
+        <Img image={`icons/home.png`} imageStyle="" imageAlt="" />
         Home
       </Link>
       <Chevron />

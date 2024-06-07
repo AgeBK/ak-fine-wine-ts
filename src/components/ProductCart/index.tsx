@@ -53,6 +53,7 @@ const ProductCart = ({
             ${current}/{packaging}
           </div>
           <div className={styles.packImg}>
+            {/* WAVE tool alerts when passing alt text here */}
             <Img
               image={
                 packaging === "Bottle"
@@ -60,7 +61,7 @@ const ProductCart = ({
                   : `icons/barrelSil.png`
               }
               imageStyle="packaging"
-              imageAlt={packaging}
+              imageAlt=""
             />
           </div>
         </div>

@@ -9,18 +9,11 @@ type CartOpenProps = {
   totalPrice: number;
   totalQty: number;
   handleClose: () => void;
-  discountCode: string;
-  setDiscountCode: (code: string) => void;
 };
 
-const CartOpen = ({
-  totalPrice,
-  totalQty,
-  handleClose,
-  discountCode,
-  setDiscountCode,
-}: CartOpenProps) => {
+const CartOpen = ({ totalPrice, totalQty, handleClose }: CartOpenProps) => {
   const dispatch = useDispatch();
+  const [discountCode, setDiscountCode] = useState<string>(""); 
   const [codeEntered, setCodeEntered] = useState(false);
 
   const handleKeyDown = ({ key }: KeyboardEvent<HTMLInputElement>) => {

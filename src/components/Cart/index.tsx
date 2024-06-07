@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCart } from "../../slices/cartSlice";
 import useCartState from "../../hooks/useCartState";
@@ -12,7 +11,6 @@ type CartQtyPriceProps = {
 };
 
 const Cart = () => {
-  const [discountCode, setDiscountCode] = useState<string>("");
   const cart: CartProps = useSelector(selectCart);
   const [ref, isOpen, handleClose] = useCartState();
 
@@ -38,8 +36,6 @@ const Cart = () => {
             totalPrice={totalPrice}
             totalQty={totalQty}
             handleClose={handleClose}
-            discountCode={discountCode}
-            setDiscountCode={setDiscountCode}
           />
         ) : (
           <CartClosed totalPrice={totalPrice} totalQty={totalQty} />

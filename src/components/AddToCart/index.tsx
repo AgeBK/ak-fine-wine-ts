@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { increment } from "../../slices/cartSlice";
+import CartImage from "./CartImage";
 import Button from "../Button";
 
 const AddToCart = ({
@@ -12,9 +14,13 @@ const AddToCart = ({
   deal,
   discountCode,
 }: AddToCartProps) => {
+  const [itemId, setItemId] = useState("");
   const dispatch = useDispatch();
+  const isAdded = itemId === id;
 
   const handleClick = () => {
+    setItemId(id);
+
     dispatch(
       increment({
         id,
@@ -30,8 +36,9 @@ const AddToCart = ({
   };
 
   return (
-    <Button css="cart" onClick={handleClick}>
-      Buy
+    <Button css={isAdded ? "cartAdded" : "cart"} onClick={handleClick}>
+      <CartImage itemAdded={isAdded} />
+      {id === itemId ? "Item Added" : "Add to cart"}
     </Button>
   );
 };

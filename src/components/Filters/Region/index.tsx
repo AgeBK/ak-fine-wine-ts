@@ -33,7 +33,7 @@ const RegionFilter = ({
     <>
       <h3 className={styles.hdr}>Region:</h3>
       {sortedArr.length > 0 ? (
-        <ul>
+        <ul role="radiogroup">
           {sortedArr.map(([reg, amount]) => (
             <li key={reg}>
               <input

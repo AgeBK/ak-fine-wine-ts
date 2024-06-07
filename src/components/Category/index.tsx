@@ -28,13 +28,13 @@ const Category = () => {
   const [sortName, setSortName] = useState<string>("");
   const [filters, setFilters] = useState<FilterProps>({});
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
-  const { category: urlCategory, variety: urlVariety } =
-    useParams<ParamProps>();
+  const [isShowItems, setIsShowItems] = useState<boolean>(false);
   const isSmallScreen: boolean = usePageWidth(MAX_SMALLSCREEN);
   const dataRef = useRef<DataProps[]>([]);
   const didMount = useRef<boolean>(false);
-  const [isShowItems, setIsShowItems] = useState<boolean>(false);
   const isSmallScreenShowItems = isSmallScreen && isShowItems;
+  const { category: urlCategory, variety: urlVariety } =
+    useParams<ParamProps>();
   let strHeader = "";
 
   useEffect(() => {

@@ -12,6 +12,8 @@
 .variety {
   font-size: 4rem;
   text-transform: capitalize;
+  background-color: #222;
+  display: inline-block;
 }
 
 .blurb {

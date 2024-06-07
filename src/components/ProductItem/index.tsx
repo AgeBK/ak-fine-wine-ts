@@ -59,11 +59,8 @@ const ProductItem = ({ props, css }: ProductItemProps) => {
         )}/${id}`}
         className={styles.itemCont}
       >
-        <Img
-          image={`wine/${id}.jpg`}
-          imageStyle="campaignMini"
-          imageAlt={name}
-        />
+        {/* WAVE tool alerts when passing alt text here */}
+        <Img image={`wine/${id}.jpg`} imageStyle="campaignMini" imageAlt="" />
         <div className={styles.productMeta}>
           <h2 className={styles.brand}>{brand}</h2>
           <h3 className={styles.shortName}>{shortName}</h3>

@@ -10,7 +10,7 @@ const PriceFilter = ({ updateFilters, filters }: WineFilterProps) => {
   return (
     <>
       <h3 className={styles.hdr}>Price:</h3>
-      <ul>
+      <ul role="radiogroup">
         {arr.map(({ text, value }) => (
           <li key={value}>
             <input
