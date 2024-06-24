@@ -11,3 +11,8 @@
   color: #555;
   font-size: 0.9rem;
 }
+
+.clear {
+  display: inline-block;
+  margin-left: 10px;
+}

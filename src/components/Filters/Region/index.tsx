@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { filterCategoryPageData } from "../../../data/utils";
 import styles from "./RegionFilter.module.css";
 
 interface RegionFilterProps extends WineFilterProps {
@@ -10,7 +11,9 @@ const RegionFilter = ({
   filters,
   currentData,
 }: RegionFilterProps) => {
-  const currentRegions: KeyNumberProps = currentData.reduce((acc, val) => {
+  const filteredData = filterCategoryPageData(currentData, filters);
+
+  const currentRegions: KeyNumberProps = filteredData.reduce((acc, val) => {
     const r: string = val.region as string;
     if (!acc[r]) acc = { ...acc, [r]: 0 };
     acc[r] += 1;

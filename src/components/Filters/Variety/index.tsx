@@ -1,8 +1,10 @@
 import { ChangeEvent } from "react";
+import { filterCategoryPageData } from "../../../data/utils";
+import Button from "../../Button";
 import styles from "./VarietyFilter.module.css";
 
 interface VarietyFilterProps extends WineFilterProps {
-  currentData: { variety: string }[];
+  currentData: DataProps[];
 }
 
 const VarietyFilter = ({
@@ -10,10 +12,12 @@ const VarietyFilter = ({
   filters,
   currentData,
 }: VarietyFilterProps) => {
+  const filteredData = filterCategoryPageData(currentData, filters);
+
   const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     updateFilters({ variety: value });
 
-  const varietys: KeyNumberProps = currentData.reduce((acc, { variety }) => {
+  const varietys: KeyNumberProps = filteredData.reduce((acc, { variety }) => {
     acc[variety] = (acc[variety] || 0) + 1;
     return acc;
   }, {} as KeyNumberProps);
@@ -39,6 +43,16 @@ const VarietyFilter = ({
               <label htmlFor={variety}>
                 {variety} <span className={styles.amount}> ({amount})</span>
               </label>
+              {filters.variety === variety && (
+                <span className={styles.clear}>
+                  <Button
+                    css="linkLight"
+                    onClick={() => updateFilters({ variety: "" })}
+                  >
+                    Clear
+                  </Button>
+                </span>
+              )}
             </li>
           ))}
         </ul>

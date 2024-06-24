@@ -85,6 +85,23 @@
   background-color: #fff;
 }
 
+.linkLight {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  color: #666;
+  text-decoration: underline;
+  font-size: 0.7rem;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.linkLight:hover {
+  color: #888;
+  background-color: #fff;
+}
+
 .scroll {
   position: fixed;
   bottom: 55px;
