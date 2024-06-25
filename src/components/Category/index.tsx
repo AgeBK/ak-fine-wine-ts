@@ -97,7 +97,7 @@ const Category = () => {
   };
 
   return (
-    <article>
+    <>
       {urlCategory && (
         <Blurb
           urlCategory={urlCategory}
@@ -152,7 +152,7 @@ const Category = () => {
           </section>
         </div>
       </div>
-    </article>
+    </>
   );
 };
 export default Category;

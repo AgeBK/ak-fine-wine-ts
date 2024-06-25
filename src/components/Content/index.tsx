@@ -17,11 +17,15 @@ const Content = ({ children }: ContentProps) => {
   } else if (isLoading) {
     content = <Loading />;
   } else if (dataIsArray) {
-      content = children;
-    } else {
-      content = <Error />;
-    }
-  return <main>{content}</main>;
+    content = children;
+  } else {
+    content = <Error />;
+  }
+  return (
+    <main>
+      <article>{content}</article>
+    </main>
+  );
 };
 
 export default Content;

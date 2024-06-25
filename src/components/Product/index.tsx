@@ -44,68 +44,66 @@ function Product() {
       } = product;
 
       return (
-        <article>
-          <div className={styles.container}>
-            <BreadCrumb
-              urlCategory={urlCategory}
-              urlVariety={urlVariety}
-              category={category}
-              variety={variety}
-            />
-            <ProductDetails
+        <div className={styles.container}>
+          <BreadCrumb
+            urlCategory={urlCategory}
+            urlVariety={urlVariety}
+            category={category}
+            variety={variety}
+          />
+          <ProductDetails
+            id={id}
+            name={name}
+            shortName={shortName}
+            brand={brand}
+            packaging={packaging}
+            current={current}
+            twoFor={twoFor}
+            tenFor={tenFor}
+            percentOff={percentOff}
+            calloutText={calloutText}
+            discountCode={discountCode}
+            average={average}
+            total={total}
+            urlCategory={urlCategory}
+            urlVariety={urlVariety}
+            isSmallScreen={isSmallScreen}
+          />
+          {isSmallScreen && (
+            <ProductCart
               id={id}
               name={name}
-              shortName={shortName}
               brand={brand}
-              packaging={packaging}
-              current={current}
+              shortName={shortName}
               twoFor={twoFor}
               tenFor={tenFor}
               percentOff={percentOff}
+              current={current}
+              packaging={packaging}
               calloutText={calloutText}
               discountCode={discountCode}
-              average={average}
-              total={total}
-              urlCategory={urlCategory}
-              urlVariety={urlVariety}
-              isSmallScreen={isSmallScreen}
             />
-            {isSmallScreen && (
-              <ProductCart
-                id={id}
-                name={name}
-                brand={brand}
-                shortName={shortName}
-                twoFor={twoFor}
-                tenFor={tenFor}
-                percentOff={percentOff}
-                current={current}
-                packaging={packaging}
-                calloutText={calloutText}
-                discountCode={discountCode}
-              />
+          )}
+          <ProductInfo
+            id={id}
+            category={category}
+            variety={variety}
+            brand={brand}
+            packaging={packaging}
+            unitOfMeasureLabel={unitOfMeasureLabel}
+            current={current}
+            normal={normal}
+            shortName={shortName}
+            urlCategory={urlCategory}
+          />
+          <ProductReview urlCategory={urlCategory} variety={variety} />
+          <section className={styles.similar}>
+            <h2>Similar Products:</h2>
+            {urlVariety && (
+              <Carousel arr={productPageCarouselProducts(data, urlVariety)} />
             )}
-            <ProductInfo
-              id={id}
-              category={category}
-              variety={variety}
-              brand={brand}
-              packaging={packaging}
-              unitOfMeasureLabel={unitOfMeasureLabel}
-              current={current}
-              normal={normal}
-              shortName={shortName}
-              urlCategory={urlCategory}
-            />
-            <ProductReview urlCategory={urlCategory} variety={variety} />
-            <section className={styles.similar}>
-              <h2>Similar Products:</h2>
-              {urlVariety && (
-                <Carousel arr={productPageCarouselProducts(data, urlVariety)} />
-              )}
-            </section>
-          </div>
-        </article>
+          </section>
+        </div>
       );
     }
     return null;

@@ -3,7 +3,7 @@ import styles from "./ProductReview.module.css";
 const review: KeyStringProps = reviews;
 
 type ProductReviewProps = {
-  urlCategory: string;
+  urlCategory?: string;
   variety: string;
 };
 

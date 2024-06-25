@@ -1,9 +1,17 @@
 import styles from "./Loading.module.css";
 
-const Loading = () => (
-  <div className={styles.loaderCont}>
-    <div className={styles.loader}></div>
-  </div>
-);
-
-export default Loading;
+export default function Loading() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.loading} role="alert" aria-live="assertive">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  );
+}
